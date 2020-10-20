@@ -1,0 +1,57 @@
+
+.content {
+    margin-bottom: 100px;
+    background-color: black;
+}
+.banner{
+    width: 100%;
+    text-align: center;
+    height: 600px;
+}
+
+.banli{
+    color: white;
+    float: left;
+    margin-left: 20%;
+    text-align: left;
+    margin-top: 160px;
+    width: 30%;
+}
+
+.banlic1{
+    font-size: 20px;
+    letter-spacing: 4px;
+}
+.banlic2{
+    margin-top: 30px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #c7c7c7;
+}
+.banlic3{
+    margin-top: 40px;
+    color: #6f6f6f;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.banli2{
+    float: right;
+    margin-right: 20%;
+    margin-top: 15px;
+    width: 30%;
+}
+
+.banli2 img{
+    width: 100%;
+    object-fit:cover;
+}
+
+.banner2{
+  width: 100%;
+    float:left;
+}
+.banner2 img{
+    width: 100%;
+    object-fit:cover;
+}

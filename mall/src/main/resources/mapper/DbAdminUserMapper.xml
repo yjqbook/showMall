@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yys.mall.mapper.DbAdminUserMapper">
+
+    <!-- 登陆-->
+    <select id="findAdminUserByUsernamePassword" resultType="com.yys.mall.entity.DbAdminUser"
+            parameterType="java.util.Map">
+    select
+       dbau.id,
+       dbau.admin AS admin,
+       dbau.password AS password
+    from db_admin_user dbau
+    where dbau.admin=#{admin} and dbau.password=#{password};
+  </select>
+
+
+    <!--更新管理员用户-->
+    <update id="updateAdminUserPassword" parameterType="com.yys.mall.entity.DbAdminUser">
+        update db_admin_user
+        set password = #{password}
+        where id = #{id}
+    </update>
+
+
+
+
+</mapper>

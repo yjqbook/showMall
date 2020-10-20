@@ -1,0 +1,83 @@
+.content {
+    background-color: black;
+}
+
+.banner {
+    float: left;
+    width: 100%;
+    background-image: url("../image/articlebg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+}
+
+.bannery {
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+
+
+.banner_title3 {
+    color: white;
+    text-align: center;
+    font-size: 38px;
+    letter-spacing: 8px;
+    margin-top: 230px;
+}
+
+.banner_title4 {
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    font-size: 26px;
+    letter-spacing: 4px;
+}
+
+.banner2{
+    color: white;
+    text-align: center;
+    float: left;
+    background-color: black;
+    width: 100%;
+}
+.banimg{
+    width: 60%;
+    margin-left: 20%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    object-fit:cover;
+}
+.banimg img{
+    width: 100%;
+    object-fit:cover;
+}
+
+.bann_title1{
+    font-size: 20px;
+    letter-spacing: 4px;
+    padding-top: 80px;
+}
+.bann_title2{
+    margin-top: 10px;
+    font-size: 20px;
+    letter-spacing: 4px;
+}
+
+.bann_p{
+    padding-left: 24%;
+    padding-right: 24%;
+    font-size: 12px;
+    margin-top: 30px;
+    color:#cccccc;
+    text-align: justify;
+    line-height: 20px;
+}
+
+.banner2 .bann_p:last-child{
+    margin-bottom: 30px;
+}

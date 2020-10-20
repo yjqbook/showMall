@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>CPE会员</title>
+    <link rel="stylesheet" href="../static/layui/css/layui.css">
+    <link rel="stylesheet" href="../static/css/headAndFood.css">
+    <link rel="stylesheet" href="../static/css/member.css">
+</head>
+<body>
+
+<div class="head">
+    <a href="/web/index">
+        <div class="head_img">
+            <img src="../static/image/logo.png"/>
+        </div>
+    </a>
+    <div class="head_search">
+        <div class="layui-form head_search_form">
+            <input type="text" name="title" class="layui-input" placeholder="输入关键词搜索">
+        </div>
+        <i class="layui-icon layui-icon-search" id="productListHear"></i>
+    </div>
+    <div class="head_menu">
+        <ul>
+            <li><a href="/web/product">产品甄选</a></li>
+            <li><a href="/web/member">会员专享</a></li>
+            <li><a href="/web/brand">品牌专研</a></li>
+            <li><a href="/web/article">相关文章</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="content">
+    <div class="banner">
+        <div class="bannery">
+            <div class="banner_title1">JOIN IN</div>
+            <div class="banner_title2"></div>
+            <div class="banner_title3">加入会员,遇见更好的自己</div>
+            <div class="banner_title4">Join V.I.P to meet a younger self</div>
+            <!--            <div class="banner_title5">-->
+            <!--                通过我们的产品系列，荣光换发的年轻肌肤，每种产品都富含我们标志性的奇迹成分泌体。可促进皮肤的自然复兴过程，从而软化皮肤，保持弹性，最小化毛孔和皱纹的出现，甚至肤色，并增强光。-->
+            <!--            </div>-->
+        </div>
+    </div>
+
+
+    <!--<div class="banner2">
+        <div class="banner2_title1">加入会员</div>
+        <div class="banner2_title2">遇见更好的CPE</div>
+    </div>
+
+    <div class="banner3">
+        <div class="bannery3">
+            <div class="bandiv1">
+                <div class="bannum">10%</div>
+                <div class="bantitle">新加会员可享产品10%优惠</div>
+            </div>
+            <div class="bandiv2">
+                <div class="bannum">20%</div>
+                <div class="bantitle">会员可享季度商品原价20%优惠</div>
+            </div>
+            <div class="bandiv3">
+                <div class="bannum">30%</div>
+                <div class="bantitle">会员生日当天可享25%优惠</div>
+            </div>
+
+        </div>
+    </div>-->
+    <div class="banner5">
+<!--        <div class="banli" style="background-image: url('../static/image/Layer 2.png')"></div>-->
+<!--        <div class="banli" style="background-image: url('../static/image/Layer 3.png')"></div>-->
+    </div>
+
+    <div class="banner4 layui-form">
+        <div class="banner4_title1">私人定制</div>
+        <div class="banner4_title2">多维度 年轻化</div>
+        <!--        <div class="banner4_ui">-->
+        <!--            <div class="banner4_li1">取适量精华液于在手掌心内预热，分别按照由外而内、由下而上的顺序轻轻按压面部的T区和U区</div>-->
+        <!--            <div class="banner4_li2">取适量精华液于在手掌心内预热，分别按照由外而内、由下而上的顺序轻轻按压面部的T区和U区</div>-->
+        <!--            <div class="banner4_li3">取适量精华液于在手掌心内预热，分别按照由外而内、由下而上的顺序轻轻按压面部的T区和U区</div>-->
+        <!--        </div>-->
+        <div style="background: linear-gradient(to right, rgba(0,0,0,0) 30%, rgba(255, 255, 255, 0.8) 50%, rgba(0,0,0,0) 70%);
+    text-align: center;
+    float: left;
+    width: 100%;
+    height: 2px;
+    margin-top: 24px;
+    margin-bottom: 80px;"></div>
+
+
+        <div class="banner4_img">
+
+            <div class="ban4_li1">
+                <div class="ban4_img" style=" background-image: url('../static/image/m1.png'); height:280px">
+                    <div class="ban4_t">「美肤基因检测」</div>
+                    <div class="ban4_t2">找到肌肤问题根源,根据肤态,<br/>
+                        制定护理方案,实现精准护肤。
+                    </div>
+
+                </div>
+            </div>
+            <div class="ban4_li2">
+                <div class="ban4_img" style=" background-image: url('../static/image/m2.png'); height:280px">
+                    <div class="ban4_t">「定制独属护肤品」</div>
+                    <div class="ban4_t2">采取自身泌体,制成冻干粉,<br/>
+                        一款真正适合你的抗衰护肤品诞生。
+                    </div>
+                </div>
+            </div>
+
+            <div class="ban4_li1">
+                <div class="ban4_img" style=" background-image: url('../static/image/m3.png'); height:280px">
+                    <div class="ban4_t">「面部年轻化」</div>
+                    <div class="ban4_t2">医疗方式打造"逆生长"肌肤状态,<br/>
+                        每一次尝试都是看得见的改变。
+                    </div>
+                </div>
+            </div>
+            <div class="ban4_li2">
+                <div class="ban4_img" style=" background-image: url('../static/image/m4.png'); height:280px">
+                    <div class="ban4_t">「细胞储存」</div>
+                    <div class="ban4_t">存储年轻与健康</div>
+                    <div class="ban4_t2">储存自身免疫细胞,需要时可培养<br/>
+                        出优质细胞改善自身状况。
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="banner4_input_ui">
+            <div class="banner4_input_li1">
+                <span>姓名 NAME</span>
+                <input type="text" name="name" class="layui-input" placeholder autocomplete='off'>
+            </div>
+            <div class="banner4_input_li2"></div>
+            <div class="banner4_input_li3">
+                <span>生日 DATE OF BIRTH</span>
+                <input type="text" name="birthday" class="layui-input" placeholder autocomplete='off' id="test1">
+            </div>
+        </div>
+        <div class="banner4_input_ui">
+            <div class="banner4_input_li1">
+                <span>手机 MOBILE</span>
+                <input type="text" name="phone" class="layui-input" placeholder autocomplete='off'>
+            </div>
+            <div class="banner4_input_li2"></div>
+            <div class="banner4_input_li3">
+                <span>邮箱 EMAIL</span>
+                <input type="text" name="email" class="layui-input" placeholder autocomplete='off'>
+            </div>
+        </div>
+        <div class="banner4_input_ui">
+            <div class="banner4_input_li1">
+                <span>验证码 VERIFICATION</span>
+                <div>
+                    <input type="text" name="title" class="layui-input banner4_input_li1_ver" placeholder
+                           autocomplete='off'>
+                    <div class="banner4_input_li1_div">
+                        <span class="banner4_input_li1_span1">|</span>
+                        <span class="banner4_input_li1_span2">获取手机验证码</span>
+                    </div>
+                </div>
+            </div>
+            <div class="banner4_input_li2"></div>
+            <div class="banner4_input_li3">
+                <div class="banner4_input_li1_res" id="register">注册会员</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="shade" style="display:none;">
+        <div>
+            <div class="popblock">
+
+                <div class="bb">
+                    <div style="
+    margin: auto;
+    font-size: 28px;
+    padding: 63px 0px;
+        letter-spacing: 10px;
+">注册成功
+                    </div>
+                    <div style="
+    font-size: 16px;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+">欢迎加入
+                    </div>
+                    <div><img width="166px" src="../static/image/cpelogo.png"/></div>
+                    <div style="
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+    border-bottom: 1px solid black;
+    width: 52px;
+    line-height: 37px;
+    display: block;
+    letter-spacing: 6px;
+    padding-left: 6px;
+     cursor: pointer;
+" onclick="$('#shade').toggle();">确定
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="popmask" onclick="$('#shade').toggle();"></div>
+    </div>
+
+</div>
+
+<div class="foot">
+    <div class="footlogo"></div>
+    <div class="footli">
+        <div class="footlileft">
+            <div>细胞科技 换醒美丽</div>
+            <div class="footEnglish">Cell Pretty Evocation</div>
+        </div>
+        <div class="footliright">
+            <div class="lirightleft">
+                <div class="menu1">产品甄选</div>
+                <div class="menu2">会员专享</div>
+                <div class="menu3">品牌专研</div>
+                <div class="menu4">相关文章</div>
+            </div>
+            <div class="lirightright">
+                <div class="imgli1">
+                    <img src="../static/image/foot/phone.png"/>
+                    <span>+86 0757 2639 1305</span>
+                </div>
+                <div class="imgli2">
+                    <img src="../static/image/foot/email.png"/>
+                    <span> info@cpeskincare.cn</span>
+                </div>
+                <div class="imgli3">
+                    <img src="../static/image/foot/weixin.png"/>
+                    <img src="../static/image/foot/weibo.png"/>
+                    <img src="../static/image/foot/dianzhuan.png"/>
+                    <img src="../static/image/foot/tonm.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="linediv"></div>
+    <div class="foottiaokuan">
+
+        <div class="tiaokuan1">©CPE有限公司版权所有。沪ICP备0800523号</div>
+        <div class="tiaokuan2">细则及条款</div>
+        <div class="tiaokuan3">隐私条款</div>
+        <div class="tiaokuan4">用户生成的权限条款</div>
+    </div>
+</div>
+
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/layui/layui.all.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use(['element', 'form', 'jquery'], function () {
+        var element = layui.element;
+        var $ = layui.jquery;
+        var form = layui.form;
+        var laydate = layui.laydate;
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1' //指定元素
+        });
+        $("#register").click(() => {
+            $("#shade").toggle();
+            var formData = {
+                name: $("input[name=name]").val(),
+                birthday: $("input[name=birthday]").val(),
+                phone: $("input[name=phone]").val(),
+                email: $("input[name=email]").val(),
+            };
+            $.ajax({
+                type: "post",
+                url: "/sys/user/addUser",
+                async: false,
+                data: formData,
+                dataType: "json",
+                success: function (d) {
+
+                }
+            });
+
+
+        })
+
+
+        $.ajax({
+            async: false,
+            url: '/sys/wideTable/getWideTableList',
+            type: "post",
+            data: {type: 2},
+            success: function (d) {
+                if (d.code == 0) {
+                    var productList = d.data;
+                    var html = '';
+                    for (var i = 0; i < productList.length; i++) {
+
+                        html += '<div class="banli"    style="background-image: url(' + productList[i].img + '); " >\n' +
+                            '        </div>';
+                    }
+                    $(".banner5").empty();
+                    $(".banner5").append(html);
+                    // $("#product").css('width',(productList.length*335)+'px');
+                    // numLeft=productList.length-3;
+                }
+            }
+        })
+
+
+        $("#productListHear").click(() => {
+            window.location.href = "/web/product?title=" + $("input[name=title]").val();
+        })
+    });
+
+
+</script>
+
+</body>
+</html>

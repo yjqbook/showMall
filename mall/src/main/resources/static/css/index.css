@@ -1,0 +1,252 @@
+.content {
+    margin-bottom: 100px;
+    background-color: black;
+}
+
+.banner {
+    float: left;
+    width: 100%;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+.banner .layui-carousel {
+    height: 572px !important;
+}
+
+.layui-carousel-ind li {
+    width: 70px!important;
+    height: 2px!important;
+    margin: 0 12px!important;
+    border-radius: 0!important;
+}
+
+.banner2 {
+    background-color: black;
+    float: left;
+    width: 100%;
+    padding-bottom: 100px;
+}
+
+.imgs_frame{
+    color: white;
+    width: 334px;
+    height: 350px;
+    display: block;
+    float: left;
+    text-align: center;
+    object-fit:cover;
+}
+.imgs_frame img{
+    width: 334px;
+    object-fit:cover;
+}
+
+.imgs_title{
+    margin-top: 30px;
+}
+.imgs_money{
+    color: #a9a6a6;
+    margin-top: 6px;
+}
+.banner2_title{
+    margin-top: 40px;
+    color: white;
+    text-align: center;
+    font-size: 28px;
+    letter-spacing: 8px;
+}
+.banner2_title2{
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 30px;
+    letter-spacing: 8px;
+}
+
+.banner2 .pre{
+    float: left;
+    cursor: pointer;
+    height: 50px;
+    width: 34px;
+    background: #1f2226;
+    line-height: 50px;
+    border-radius: 117px;
+    padding-left: 17px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    margin-top: 107px;
+    margin-left: 53px;
+}
+.banner2 .nex{
+    float: right;
+    cursor: pointer;
+    height: 50px;
+    width: 34px;
+    background: #1f2226;
+    line-height: 50px;
+    border-radius: 117px;
+    padding-left: 17px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    margin-top: 107px;
+    margin-right: 53px;
+}
+.banner2_imgs {
+    width: 1002px;
+    margin: auto;
+    overflow: hidden;
+    object-fit:cover;
+}
+
+.banner3{
+    float: left;
+    width: 100%;
+}
+
+.banli img{
+    width: 100%;
+    object-fit:cover;
+}
+
+.bancon{
+    color: black;
+    height: 260px;
+    margin-top: 80px;
+    width: 260px;
+    z-index: 999;
+    margin-left: 60%;
+    text-align: right;
+}
+
+.banli{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    float: left;
+    width: 100%;
+}
+
+.bantitleen{
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: black;
+    padding-top:167px;
+}
+.bantitlezn{
+    color: black;
+    font-size: 16px;
+    letter-spacing: 8px;
+    margin-top: 30px;
+    margin-bottom: 123px;
+}
+.banmore {
+    border: 1px solid black;
+    width: 133px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    float: right;
+    letter-spacing: 5px;
+    font-size: 12px;
+}
+
+.banli2 img{
+    width: 100%;
+    object-fit:cover;
+}
+
+.bancon2{
+    color: white;
+    height: 260px;
+    margin-top: 80px;
+    width: 260px;
+    z-index: 999;
+    margin-left: 20%;
+    text-align: left;
+}
+
+.banli2{
+    background-image: url("../image/projectB2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    float: left;
+    width: 100%;
+}
+
+.bantitleen2{
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: white;
+    padding-top:167px;
+}
+.bantitlezn2{
+    color: white;
+    font-size: 16px;
+    letter-spacing: 8px;
+    margin-top: 30px;
+    margin-bottom: 123px;
+}
+.banmore2{
+    border: 1px solid white;
+    width: 133px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    float: left;
+    letter-spacing: 5px;
+    font-size: 12px;
+}
+
+
+.banner4{
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+.banimg{
+    height: 230px;
+    width: 65%;
+    margin: auto;
+    object-fit:cover;
+}
+.banimgli{
+    width: 31.333333%;
+    height: 222px;
+    float: left;
+    object-fit:cover;
+}
+.banimgli1{
+    background-image: url("../image/list1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.banimgli2{
+    background-image: url("../image/list2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.banimgli3{
+    background-image: url("../image/list3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+

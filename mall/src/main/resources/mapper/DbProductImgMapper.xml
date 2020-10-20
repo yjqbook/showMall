@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yys.mall.mapper.DbProductImgMapper">
+
+
+
+    <insert id="addProductImg" parameterType="com.yys.mall.entity.DbProductImg">
+        insert INTO db_product_img
+        (imgurl,product_info_id,sort) values
+        (#{imgurl},#{productInfoId},#{sort})
+    </insert>
+
+    <select id="getProductImgList" resultType="java.util.Map" parameterType="java.util.Map">
+        SELECT
+        dpi.id as id,
+        dpi.imgurl as imgurl,
+        dpi.product_info_id as productInfoId,
+        dpi.sort as sort,
+        dpi2.title as productInfoName
+        FROM db_product_img dpi
+        left join db_product_info dpi2 on dpi2.id=dpi.product_info_id
+        where dpi.status=0 and product_info_id=#{productInfoId}
+       ORDER BY dpi.sort DESC limit #{page} , #{limit}
+    </select>
+    <select id="getProductImgListCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+        SELECT
+        count(*)
+        FROM  db_product_img dpi
+        where dpi.status=0 and product_info_id=#{productInfoId}
+    </select>
+
+    <update id="deleteProductImg" parameterType="java.lang.Integer">
+        update db_product_img set status=1 where id=#{id}
+    </update>
+    <update id="updateSortImg">
+        update db_product_img set sort=#{sort} where id=#{id}
+    </update>
+
+
+
+    <select id="getProductImgListById" resultType="java.util.Map">
+        SELECT
+        dpi.id as id,
+        dpi.imgurl as imgurl,
+        dpi.product_info_id as productInfoId,
+        dpi.sort as sort,
+        dpi2.title as productInfoName
+        FROM db_product_img dpi
+        left join db_product_info dpi2 on dpi2.id=dpi.product_info_id
+        where dpi.status=0 and product_info_id=#{id}
+       ORDER BY dpi.sort DESC
+    </select>
+
+
+</mapper>

@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>添加设备</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../static/layui/css/layui.css" media="all"/>
+    <style type="text/css">
+        .layui-form-item .layui-inline {
+            width: 33.333%;
+            float: left;
+            margin-right: 0;
+        }
+
+        @media ( max-width: 1240px) {
+            .layui-form-item .layui-inline {
+                width: 100%;
+                float: none;
+            }
+        }
+
+        .childrenBody {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body class="childrenBody">
+<form class="layui-form" style="width: 80%;" id="auf">
+    <input type="text" name="id" class="layui-hide"  th:value="${productInfo.id}">
+    <div class="layui-form-item">
+        <label class="layui-form-label">标题</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" class="layui-input userName"
+                   placeholder="请输入标题(必填)" th:value="${productInfo.title}" lay-verify="required">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">副标题</label>
+        <div class="layui-input-block">
+            <input type="text" name="titleTwo" class="layui-input userName"
+                   placeholder="请输入副标题" th:value="${productInfo.titleTwo}" >
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">产品系列</label>
+        <div class="layui-input-block">
+            <select name="typeSeries" lay-verify="required">
+
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">产品类型</label>
+        <div class="layui-input-block">
+            <select name="typeCategory" lay-verify="required">
+
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">规格</label>
+        <div class="layui-input-block">
+            <input type="text" name="norms" class="layui-input userName"
+                   placeholder="请输入规格" th:value="${productInfo.norms}" >
+        </div>
+    </div>
+
+   <!-- <div class="layui-form-item">
+        <label class="layui-form-label">价格($)</label>
+        <div class="layui-input-block">
+            <input type="text" name="money" class="layui-input userName"
+                   placeholder="请输入价格" th:value="${productInfo.money}" lay-verify="number">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">容量(ml)</label>
+        <div class="layui-input-block">
+            <input type="text" name="volume" class="layui-input userName"
+                   placeholder="请输入容量" th:value="${productInfo.volume}" lay-verify="number">
+        </div>
+    </div>-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">排序号</label>
+        <div class="layui-input-block">
+            <input type="text" id="sort" name="sort" class="layui-input userName"
+                   placeholder="请输入排序号" th:value="${productInfo.sort}" lay-verify="number">
+        </div>
+    </div>
+
+    <input type="text" id="bannerImg" name="titleImg" class="layui-hide" th:value="${productInfo.titleImg}">
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">上传图片</label>
+        <div class="layui-input-inline uploadHeadImage" style=" width: 350px;">
+            <div class="layui-upload-drag" id="headImg">
+                <i class="layui-icon"></i>
+                <p>点击上传图片，或将图片拖拽到此处</p>
+            </div>
+        </div>
+        <div class="layui-input-inline">
+            <img class="layui-upload-img headImage"  width="300px" th:src="${productInfo.titleImg}" id="demo1">
+            <p id="demoText"></p>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">天猫地址</label>
+        <div class="layui-input-block">
+            <input type="text" name="tmall" class="layui-input userName"
+                   placeholder="请输入天猫地址" th:value="${productInfo.tmall}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">京东地址</label>
+        <div class="layui-input-block">
+            <input type="text" name="jd" class="layui-input userName"
+                   placeholder="请输入京东地址" th:value="${productInfo.jd}">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="addProductDict">立即提交</button>
+        </div>
+    </div>
+</form>
+<script type="text/javascript" src="../static/layui/layui.js"></script>
+<script>
+    var typeSeries = '[[${typeSeries}]]';
+    var typeCategory = '[[${typeCategory}]]';
+    var $;
+    var form;
+    layui.config({
+        base: "js/"
+    }).use(['form', 'layer', 'jquery', 'laydate', 'upload', 'element'], function () {
+        var layer = layui.layer,
+            laypage = layui.laypage,
+            laydate = layui.laydate,
+            element = layui.element,
+            upload = layui.upload;
+        $ = layui.jquery;
+        form = layui.form;
+        a();
+        function a(){
+            $.ajax({
+                type: "post",
+                url: "/sys/product/getProductDictList",
+                async: false,
+                data: {
+                page:1,
+                limit: 1000,
+                },
+                dataType: "json",
+                success: function (d) {
+                    if (d.code == 0) {
+
+                        var typeSerieshtml = '';
+                        var typeCategoryhtml = '';
+                        for (var i = 0; i < d.data.length; i++) {
+                            if (d.data[i].type == 1) {
+                                console.log(typeSeries);
+                                console.log(d.data[i].id);
+                                if(Number(typeSeries)== d.data[i].id){
+                                    typeSerieshtml += ' <option value="' + d.data[i].id + '" selected>' + d.data[i].name + '</option>'
+                                }else{
+                                    typeSerieshtml += ' <option value="' + d.data[i].id + '">' + d.data[i].name + '</option>'
+                                }
+                          } else if (d.data[i].type == 2) {
+                                console.log(typeCategory);
+                                console.log(d.data[i].id);
+                                if(Number(typeCategory) == d.data[i].id){
+                                    typeCategoryhtml += ' <option value="' + d.data[i].id + '" selected>' + d.data[i].name + '</option>'
+                                }else{
+                                    typeCategoryhtml += ' <option value="' + d.data[i].id + '">' + d.data[i].name + '</option>'
+                                }
+                            }
+                        }
+
+                        $("select[name=typeSeries]").append(typeSerieshtml);
+                        $("select[name=typeCategory]").append(typeCategoryhtml);
+                        form.render("select");
+                        element.init();
+
+                    } else {
+
+                    }
+                }
+            });
+        }
+
+
+        //拖拽上传
+        var uploadInst = upload.render({
+            elem: '#headImg'
+            , url: '/sys/uploadImg/banner'
+            , size: 5000
+            , before: function (obj) {
+                //预读本地文件示例，不支持ie8
+                obj.preview(function (index, file, result) {
+                    $('#demo1').attr('src', result); //图片链接（base64）
+                });
+            }
+            , done: function (res) {
+                //如果上传失败
+                if (res.code > 0) {
+                    return layer.msg('上传失败');
+                }
+                //上传成功
+                //打印后台传回的地址: 把地址放入一个隐藏的input中, 和表单一起提交到后台, 此处略..
+                /*   console.log(res.data.src);*/
+                //   window.parent.uploadHeadImage(res.data.src);
+                $('#bannerImg').val(res.data.src);
+                var demoText = $('#demoText');
+                demoText.html('<span style="color: #8f8f8f;">上传成功!!!</span>');
+            }
+            , error: function () {
+                //演示失败状态，并实现重传
+                var demoText = $('#demoText');
+                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
+                demoText.find('.demo-reload').on('click', function () {
+                    uploadInst.upload();
+                });
+            }
+        });
+        element.init();
+
+        form.on("submit(addProductDict)", function (data) {
+            //弹出loading
+            var index = layer.load(); //上传loading
+            var msg, flag = false;
+            $.ajax({
+                type: "post",
+                url: "/sys/product/updateProductInfo",
+                async: false,
+                data: data.field,
+                dataType: "json",
+                success: function (d) {
+                    if (d.code == 200) {
+                        msg = "修改成功！";
+                        flag = true;
+                    } else {
+                        msg = d.msg;
+                    }
+                }
+            });
+            setTimeout(function () {
+                layui.layer.close(index);
+                if (flag) {
+                    layer.msg(msg, {icon: 1, time: 2000, area: '200px', type: 0});
+                    setTimeout(function () {
+                        parent.uploadTable();
+                    }, 1000);
+                } else {
+                    layer.msg(msg, {icon: 5, time: 2000, area: '200px', type: 0, anim: 6});
+                }
+            }, 2000);
+            return false;
+        })
+
+    })
+
+</script>
+</body>
+</html>

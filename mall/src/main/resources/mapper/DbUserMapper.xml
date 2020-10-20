@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yys.mall.mapper.DbUserMapper">
+
+
+    <!--更新管理员用户-->
+    <insert id="addUser" parameterType="com.yys.mall.entity.DbUser">
+        insert INTO db_user (name,birthday,phone,email,create_time) values(#{name},#{birthday},#{phone},#{email},#{createTime} )
+    </insert>
+
+    <select id="getUserList" resultType="java.util.Map" parameterType="java.util.Map">
+        SELECT
+        dbu.id AS id,
+        dbu.name AS name,
+        dbu.birthday AS birthday,
+        dbu.phone AS phone,
+        dbu.email AS email,
+        dbu.create_time AS createTime
+        FROM db_user dbu
+        where dbu.status=0
+        ORDER BY dbu.create_time DESC limit #{page} , #{limit}
+    </select>
+    <select id="getUserListCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+        SELECT
+        count(*)
+        FROM  db_user dbu
+        where dbu.status=0
+    </select>
+
+    <update id="deleteUser" parameterType="java.lang.Integer">
+        update db_user set status=1 where id=#{id}
+    </update>
+
+</mapper>

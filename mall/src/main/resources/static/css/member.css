@@ -1,0 +1,380 @@
+.content {
+    background-color: black;
+}
+
+.banner {
+    float: left;
+    width: 100%;
+    background-image: url("../image/memberbg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+
+}
+
+.bannery {
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+.banner_title1 {
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 100px;
+}
+
+.banner_title2 {
+    border-bottom: 1px solid white;
+    width: 53px;
+    margin: auto;
+    margin-top: 24px;
+}
+
+.banner_title3 {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 10px;
+    margin-top: 86px;
+}
+
+.banner_title4 {
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    font-size: 26px;
+    letter-spacing: 4px;
+}
+
+.banner_title5 {
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 2px;
+    width: 53%;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.banner2 {
+    float: left;
+    width: 100%;
+    height: 400px;
+    background-color: black;
+}
+
+
+.banner2_title1 {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 10px;
+    margin-top: 120px;
+}
+
+.banner2_title2 {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 10px;
+    margin-top: 20px;
+}
+
+.banner3 {
+    float: left;
+    width: 100%;
+    background-image: url("../image/memberbg2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    color: white;
+}
+
+.bannery3 {
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    display: block;
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+.bandiv1 {
+    margin-left: 20%;
+    float: left;
+    width: 20%;
+    margin-top: 240px;
+}
+
+.bandiv2 {
+    float: left;
+    width: 19.8%;
+    margin-top: 240px;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+
+.bandiv3 {
+    margin-right: 20%;
+    float: left;
+    width: 20%;
+    margin-top: 240px;
+}
+
+.bannum {
+    font-size: 70px;
+}
+
+.bantitle {
+    margin-top: 36px;
+}
+
+
+.banner4 {
+    float: left;
+    width: 100%;
+    background-color: black;
+    padding-bottom: 50px;
+}
+
+.banner4_title1 {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 10px;
+    margin-top: 86px;
+}
+
+.banner4_title2 {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 10px;
+    margin-top: 5px;
+}
+
+
+.banner4_img {
+    width: 100%;
+    float: left;
+    margin-bottom: 120px;
+}
+
+.ban4_li1 {
+    margin-left: 18%;
+    width: 30%;
+    float: left;
+    padding: 5px;
+    margin-top: 40px;
+}
+
+.ban4_li2 {
+    width: 30%;
+    float: right;
+    padding: 5px;
+    margin-right: 18%;
+    margin-top: 40px;
+}
+
+
+.ban4_img {
+    float: left;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding-top: 150px;
+}
+
+.ban4_img {
+    float: left;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+
+.ban4_t {
+    font-size: 34px;
+    letter-spacing: 5px;
+}
+
+.ban4_t2 {
+    color: #a9a6a6;
+    font-size: 20px;
+    letter-spacing: 4px;
+    margin-top: 45px;
+}
+
+.banner4_ui {
+    color: #d4d4d4;
+    font-size: 12px;
+    letter-spacing: 5px;
+    line-height: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: 53px;
+    margin-bottom: 200px;
+    height: 100%;
+    display: block;
+    float: left;
+}
+
+.banner4_li1 {
+    margin-left: 20%;
+    float: left;
+    width: 16%;
+    padding: 2%;
+}
+
+.banner4_li2 {
+    float: left;
+    width: 15.8%;
+    padding: 2%;
+}
+
+.banner4_li3 {
+    margin-right: 20%;
+    float: left;
+    width: 16%;
+    padding: 2%;
+}
+
+.banner4_input_ui {
+    color: #f5f5f5;
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    display: block;
+    float: left;
+}
+
+.banner4_input_ui input {
+    background: black;
+    border: 0;
+    border-bottom: 1px solid white;
+    border-radius: 0;
+    color: white;
+    padding: 0;
+    margin: 0;
+    margin-top: 3px;
+}
+
+.banner4_input_li1_ver {
+    width: 60%;
+    display: block;
+    float: left;
+}
+
+.banner4_input_li1_div {
+    border-bottom: 1px solid white;
+}
+
+.banner4_input_li1_span1 {
+    font-size: 22px;
+    line-height: 34px;
+}
+
+.banner4_input_li1_span2 {
+    font-size: 13px;
+    line-height: 40px;
+    color: #adadad;
+}
+
+.banner4_input_li1_res {
+    border-radius: 2px;
+    line-height: 34px;
+    text-align: center;
+    background-color: white;
+    color: black;
+    width: 42%;
+    font-size: 12px;
+    float: right;
+    margin-top: 37px;
+    cursor: pointer;
+}
+
+.banner4_input_li1 {
+    margin-left: 17%;
+    float: left;
+    width: 24%;
+    padding: 2%;
+}
+
+.banner4_input_li1 > span {
+    padding-bottom: 10px;
+    display: block;
+}
+
+
+.banner4_input_li2 {
+    float: left;
+    width: 5.8%;
+    padding: 2%;
+}
+
+.banner4_input_li3 {
+    margin-right: 17%;
+    float: left;
+    width: 24%;
+    padding: 2%;
+}
+
+.popblock {
+    width: 100%;
+    height: 400px;
+    z-index: 100;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.popmask {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.bb {
+    z-index: 998;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    color: black;
+    background-color: white;
+    border-radius: 300px;
+    text-align: center;
+}
+
+
+.banner5 {
+    float: left;
+    width: 100%;
+}
+
+
+.banli {
+    background-image: url("../image/projectB1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    float: left;
+    width: 100%;
+}

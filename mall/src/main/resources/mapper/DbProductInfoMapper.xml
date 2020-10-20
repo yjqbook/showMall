@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yys.mall.mapper.DbProductInfoMapper">
+
+
+    <!--更新管理员用户-->
+    <insert id="addProductInfo" parameterType="com.yys.mall.entity.DbProductInfo">
+        insert INTO db_product_info
+        (title,title_two,money,volume,norms,title_img,type_category,sort,type_series,tmall,jd) values
+        (#{title},#{titleTwo},#{money},#{volume},#{norms},#{titleImg},#{typeCategory},#{sort},#{typeSeries},#{tmall},#{jd})
+    </insert>
+
+    <select id="getProductInfoList" resultType="java.util.Map" parameterType="java.util.Map">
+        SELECT
+        dpi.id AS id,
+        dpi.title AS title,
+        dpi.title_two AS titleTwo,
+        dpi.money AS money,
+        dpi.volume AS volume,
+        dpi.norms AS norms,
+        dpi.title_img AS titleImg,
+        dpi.type_category AS typeCategory,
+        dpd.name AS typeCategoryName,
+        dpi.sort AS sort,
+        dpi.type_series AS typeSeries,
+        dpd2.name AS typeSeriesName,
+        dpi.tmall AS tmall,
+        dpi.jd AS jd,
+        dpi.type AS type
+        FROM db_product_info dpi
+        left join db_product_dict dpd on dpd.id =dpi.type_category
+        left join db_product_dict dpd2 on dpd2.id =dpi.type_series
+        where dpi.status=0
+        ORDER BY dpi.sort DESC limit #{page} , #{limit}
+    </select>
+    <select id="getProductInfoListCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+        SELECT
+        count(*)
+        FROM  db_product_info dpi
+        where dpi.status=0
+    </select>
+    <select id="getProductInfoListToIndex" resultType="java.util.Map" >
+        SELECT
+        dpi.id AS id,
+        dpi.title AS title,
+        dpi.title_two AS titleTwo,
+        dpi.money AS money,
+        dpi.volume AS volume,
+        dpi.norms AS norms,
+        dpi.title_img AS titleImg,
+        dpi.type_category AS typeCategory,
+        dpd.name AS typeCategoryName,
+        dpi.sort AS sort,
+        dpi.type_series AS typeSeries,
+        dpd2.name AS typeSeriesName,
+        dpi.tmall AS tmall,
+        dpi.jd AS jd,
+        dpi.type AS type
+        FROM db_product_info dpi
+        left join db_product_dict dpd on dpd.id =dpi.type_category
+        left join db_product_dict dpd2 on dpd2.id =dpi.type_series
+        where dpi.status=0 and dpi.type=1
+        ORDER BY dpi.sort DESC
+    </select>
+
+
+    <select id="getProductInfoListToProduct" resultType="java.util.Map" >
+        SELECT
+        dpi.id AS id,
+        dpi.title AS title,
+        dpi.title_two AS titleTwo,
+        dpi.money AS money,
+        dpi.volume AS volume,
+        dpi.norms AS norms,
+        dpi.title_img AS titleImg,
+        dpi.type_category AS typeCategory,
+        dpd.name AS typeCategoryName,
+        dpi.sort AS sort,
+        dpi.type_series AS typeSeries,
+        dpd2.name AS typeSeriesName,
+        dpi.tmall AS tmall,
+        dpi.jd AS jd,
+        dpi.type AS type
+        FROM db_product_info dpi
+        left join db_product_dict dpd on dpd.id =dpi.type_category
+        left join db_product_dict dpd2 on dpd2.id =dpi.type_series
+        where dpi.status=0
+        <if test="typeSeries!=null ">
+           and dpi.type_series=#{typeSeries}
+        </if>
+        <if test="typeCategory!=null ">
+            and  dpi.type_category=#{typeCategory}
+        </if>
+        <if test="title!=null and title!=''">
+            and  (dpi.title LIKE concat(concat("%",#{title}),"%"))
+        </if>
+        ORDER BY dpi.sort DESC
+    </select>
+
+
+
+
+    <select id="getProductInfoById" resultType="java.util.Map" parameterType="java.lang.Integer">
+        SELECT
+        dpi.id AS id,
+        dpi.title AS title,
+        dpi.title_two AS titleTwo,
+        dpi.money AS money,
+        dpi.volume AS volume,
+        dpi.norms AS norms,
+        dpi.title_img AS titleImg,
+        dpi.type_category AS typeCategory,
+        dpi.sort AS sort,
+        dpi.type_series AS typeSeries,
+        dpi.tmall AS tmall,
+        dpi.jd AS jd,
+        dpi.type AS type
+
+        FROM db_product_info dpi
+        where dpi.id=#{id}
+    </select>
+
+
+
+    <update id="deleteProductInfo" parameterType="java.lang.Integer">
+        update db_product_info set status=1 where id=#{id}
+    </update>
+
+    <update id="updateProductInfo" parameterType="java.util.Map">
+          update db_product_info set
+            title=#{title},
+            title_two=#{titleTwo},
+            money=#{money},
+            volume=#{volume},
+            norms=#{norms},
+            title_img=#{titleImg},
+            type_category=#{typeCategory},
+            sort=#{sort},
+            type_series=#{typeSeries},
+            tmall=#{tmall},
+            jd=#{jd}
+          where id=#{id}
+    </update>
+
+    <update id="updateInfoType" >
+        update db_product_info set type=#{type} where id=#{id}
+    </update>
+</mapper>

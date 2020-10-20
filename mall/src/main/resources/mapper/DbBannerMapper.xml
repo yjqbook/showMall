@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yys.mall.mapper.DbBannerMapper">
+
+
+    <!--更新管理员用户-->
+    <insert id="addBanner" parameterType="com.yys.mall.entity.DbBanner">
+        insert INTO db_banner (banner_name,banner_img,sort) values(#{bannerName},#{bannerImg},#{sort} )
+    </insert>
+
+    <select id="getBannerList" resultType="java.util.Map" parameterType="java.util.Map">
+        SELECT
+        dbb.id AS id,
+        dbb.banner_name AS bannerName,
+        dbb.sort AS sort,
+        dbb.banner_img AS bannerImg,
+        dbb.type
+        FROM db_banner dbb
+        where dbb.status=0
+        ORDER BY dbb.sort DESC limit #{page} , #{limit}
+    </select>
+    <select id="getBannerListCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+        SELECT
+        count(*)
+        FROM  db_banner dbb
+        where dbb.status=0
+    </select>
+
+
+    <select id="getIndexBanner" resultType="java.util.Map">
+        SELECT
+        dbb.id AS id,
+        dbb.banner_name AS bannerName,
+        dbb.sort AS sort,
+        dbb.banner_img AS bannerImg,
+        dbb.type
+        FROM db_banner dbb
+        where dbb.status=0 and dbb.type=1
+    </select>
+
+    <update id="deleteBanner" parameterType="java.lang.Integer">
+        update db_banner set status=1 where id=#{id}
+    </update>
+
+    <update id="updateTypeBanner" parameterType="java.util.Map">
+          update db_banner set type=#{type} where id=#{id}
+    </update>
+
+    <update id="updateSortBanner">
+        update db_banner set sort=#{sort} where id=#{id}
+    </update>
+
+
+
+
+
+</mapper>

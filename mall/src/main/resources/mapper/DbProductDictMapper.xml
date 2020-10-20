@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yys.mall.mapper.DbProductDictMapper">
+
+
+    <insert id="addProductDict" parameterType="com.yys.mall.entity.DbProductDict">
+        insert INTO db_product_dict (name,type,sort) values(#{name},#{type},#{sort} )
+    </insert>
+
+    <select id="getProductDictList" resultType="java.util.Map" parameterType="java.util.Map">
+        SELECT
+        dpd.id AS id,
+        dpd.name ,
+        dpd.sort AS sort,
+        dpd.type
+        FROM db_product_dict dpd
+        where dpd.status=0
+        ORDER BY dpd.sort DESC limit #{page} , #{limit}
+    </select>
+    <select id="getProductDictListCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+        SELECT
+        count(*)
+        FROM  db_product_dict dpd
+        where dpd.status=0
+    </select>
+
+
+    <select id="getProductDictListToIndex" resultType="java.util.Map" parameterType="java.lang.Integer">
+        SELECT
+        dpd.id AS id,
+        dpd.name ,
+        dpd.sort AS sort,
+        dpd.type
+        FROM db_product_dict dpd
+        where dpd.status=0 and dpd.type=#{type}
+        ORDER BY dpd.sort DESC
+    </select>
+
+
+    <update id="deleteProductDict" parameterType="java.lang.Integer">
+        update db_product_dict set status=1 where id=#{id}
+    </update>
+
+    <update id="updateSortDict">
+        update db_product_dict set sort=#{sort} where id=#{id}
+    </update>
+
+
+
+</mapper>

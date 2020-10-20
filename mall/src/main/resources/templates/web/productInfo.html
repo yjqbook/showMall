@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>CPE产品</title>
+    <link rel="stylesheet" href="../static/layui/css/layui.css">
+    <link rel="stylesheet" href="../static/css/headAndFood.css">
+    <link rel="stylesheet" href="../static/css/productInfo.css">
+</head>
+<body>
+
+<div class="head">
+    <a href="/web/index">
+        <div class="head_img">
+            <img src="../static/image/logo.png"/>
+        </div>
+    </a>
+    <div class="head_search">
+        <div class="layui-form head_search_form">
+            <input type="text" name="title" class="layui-input" placeholder="输入关键词搜索">
+        </div>
+        <i class="layui-icon layui-icon-search" id="productListHear"></i>
+    </div>
+    <div class="head_menu">
+        <ul>
+            <li><a href="/web/product">产品甄选</a></li>
+            <li><a href="/web/member">会员专享</a></li>
+            <li><a href="/web/brand">品牌专研</a></li>
+            <li><a href="/web/article">相关文章</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="content">
+    <div class="banner">
+
+        <div class="banli">
+            <div class="banlic1"></div>
+            <div class="banlic2"></div>
+            <div class="banlic3">
+
+               <!-- <span>立即购买:</span>
+                <a href="" target="_blank" id="jd"> <img src=""/></a>
+                <a href="" target="_blank" id="tmall"> <img src=""/></a>-->
+            </div>
+        </div>
+        <div class="banli2"><img id="banli2" src=""/></div>
+
+        <div class="banner2">
+           <!-- <img src="../static/image/productList1.png"/>
+            <img src="../static/image/productList2.png"/>
+            <img src="../static/image/productList3.png"/>-->
+        </div>
+    </div>
+
+
+</div>
+
+<div class="foot">
+    <div class="footlogo"></div>
+    <div class="footli">
+        <div class="footlileft">
+            <div>细胞科技 换醒美丽</div>
+            <div class="footEnglish">Cell Pretty Evocation</div>
+        </div>
+        <div class="footliright">
+            <div class="lirightleft">
+                <div class="menu1">产品甄选</div>
+                <div class="menu2">会员专享</div>
+                <div class="menu3">品牌专研</div>
+                <div class="menu4">相关文章</div>
+            </div>
+            <div class="lirightright">
+                <div class="imgli1">
+                    <img src="../static/image/foot/phone.png"/>
+                    <span>+86 0757 2639 1305</span>
+                </div>
+                <div class="imgli2">
+                    <img src="../static/image/foot/email.png"/>
+                    <span> info@cpeskincare.cn</span>
+                </div>
+                <div class="imgli3">
+                    <img src="../static/image/foot/weixin.png"/>
+                    <img src="../static/image/foot/weibo.png"/>
+                    <img src="../static/image/foot/dianzhuan.png"/>
+                    <img src="../static/image/foot/tonm.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="linediv"></div>
+    <div class="foottiaokuan">
+
+        <div class="tiaokuan1">©CPE有限公司版权所有。沪ICP备0800523号</div>
+        <div class="tiaokuan2">细则及条款</div>
+        <div class="tiaokuan3">隐私条款</div>
+        <div class="tiaokuan4">用户生成的权限条款</div>
+    </div>
+</div>
+
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/layui/layui.js"></script>
+<script>
+
+
+    function GetQueryString(strName) {
+        var strHref = document.location.toString();
+        var intPos = strHref.indexOf("?");
+        var strRight = strHref.substr(intPos + 1); //==========获取到右边的参数部分
+        var arrTmp = strRight.split("&"); //=============以&分割成数组
+
+        for (var i = 0; i < arrTmp.length; i++) //===========循环数组
+        {
+            var dIntPos = arrTmp[i].indexOf("=");
+            var paraName = arrTmp[i].substr(0, dIntPos);
+            var paraData = arrTmp[i].substr(dIntPos + 1);
+            if (paraName.toUpperCase() == strName.toUpperCase()) {
+                return paraData;
+            }
+        }
+        return "";
+    }
+
+    var id = GetQueryString("id");
+
+
+    //JavaScript代码区域
+    layui.use(['element', 'form', 'carousel'], function () {
+        var element = layui.element;
+        var form = layui.form;
+
+        $.ajax({
+            type: "post",
+            url: "/sys/product/getProductInfoById",
+            async: false,
+            data: {id: id},
+            dataType: "json",
+            success: function (d) {
+
+                var productInfo = d.data.productInfo;
+                var productInfoImgList = d.data.productInfoImgList;
+                $(".banlic1").html(productInfo.title);
+                $(".banlic2").html(productInfo.titleTwo);
+                $("#jd").attr("href", productInfo.jd);
+                $("#tmall").attr("href", productInfo.tmall);
+                $("#banli2").attr("src", productInfo.titleImg);
+
+                if((productInfo.jd != null && productInfo.jd!='')
+                    ||  (productInfo.tmall != null && productInfo.tmall!='') ){
+                    var htmlURL='<span>立即购买:</span>\n';
+                    if(productInfo.jd != null && productInfo.jd!=''){
+                        htmlURL+='<a href="'+productInfo.jd+'" target="_blank" id="jd"> <img src="../static/image/zhan.png"/></a>';
+                    }
+                    if(productInfo.tmall != null && productInfo.tmall!=''){
+                        htmlURL+='<a href="'+productInfo.tmall+'" target="_blank" id="tmall"> <img src="../static/image/tw.png"/></a>';
+                    }
+                    $(".banlic3").html(htmlURL);
+                }
+
+
+                var html = '';
+                for (var i = 0; i < productInfoImgList.length; i++) {
+                    html += '<img src="' + productInfoImgList[i].imgurl + '"/>';
+                }
+                $(".banner2").empty();
+                $(".banner2").append(html);
+            }
+        });
+
+
+        $("#productListHear").click(() => {
+            window.location.href = "/web/product?title=" + $("input[name=title]").val();
+        })
+
+
+    });
+
+
+</script>
+
+</body>
+</html>

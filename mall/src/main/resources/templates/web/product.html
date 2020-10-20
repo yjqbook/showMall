@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>CPE产品</title>
+    <link rel="stylesheet" href="../static/layui/css/layui.css">
+    <link rel="stylesheet" href="../static/css/headAndFood.css">
+    <link rel="stylesheet" href="../static/css/product.css">
+</head>
+<body>
+
+<div class="head">
+    <a href="/web/index">
+    <div class="head_img">
+        <img src="../static/image/logo.png"/>
+    </div>
+    </a>
+    <div class="head_search">
+        <div class="layui-form head_search_form">
+            <input type="text" name="title" class="layui-input" placeholder="输入关键词搜索">
+        </div>
+        <i class="layui-icon layui-icon-search" id="productListHear"></i>
+    </div>
+    <div class="head_menu">
+        <ul>
+            <li><a href="/web/product">产品甄选</a></li>
+            <li><a href="/web/member">会员专享</a></li>
+            <li><a href="/web/brand">品牌专研</a></li>
+            <li><a href="/web/article">相关文章</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="content">
+    <div class="banner">
+        <div class="bannery">
+            <div class="banner_title1">EXPLORE</div>
+            <div class="banner_title2"></div>
+            <div class="banner_title3">产品甄选</div>
+            <div class="banner_title4">PRODUCTS</div>
+            <div class="banner_title5">
+                通过我们的产品系列，荣光换发的年轻肌肤，每种产品都富含我们标志性的奇迹成分泌体。可促进皮肤的自然复兴过程，从而软化皮肤，保持弹性，最小化毛孔和皱纹的出现，甚至肤色，并增强光。
+            </div>
+        </div>
+    </div>
+    <div class="banner2">
+
+        <div class="banform">
+            <div class="layui-form ban_search_form">
+                <input type='text' style='display:none'>
+                <div class="ban_select1">
+                    <select name="typeSeries" id="series">
+                        <option value="">产品系列</option>
+                    </select>
+                </div>
+                <div class="ban_select2">
+                    <select name="typeCategory" id="category">
+                        <option value="">产品种类</option>
+                    </select>
+                </div>
+
+                <div class="ban_search">
+                    <input type="text" name="title1" class="layui-input" placeholder="输入关键词搜索" autocomplete='off'>
+                    <i class="layui-icon layui-icon-search" id="productSearch"></i>
+                </div>
+            </div>
+        </div>
+        <div class="banlis" id="productList">
+           <!-- <a href="/web/productInfo">
+                <div class="imgs_frame">
+                    <img src="../static/image/1.png"/>
+                    <div class="imgs_title">高能抗衰精华液</div>
+                    <div class="imgs_money">$35 / 30ml</div>
+                </div>
+            </a>
+            <a href="/web/productInfo">
+            <div class="imgs_frame">
+                <img src="../static/image/2.png"/>
+                <div class="imgs_title">高能抗衰精华液</div>
+                <div class="imgs_money">$35 / 30ml</div>
+            </div>
+            </a>
+            <a href="/web/productInfo">
+            <div class="imgs_frame">
+                <img src="../static/image/1.png"/>
+                <div class="imgs_title">高能抗衰精华液</div>
+                <div class="imgs_money">$35 / 30ml</div>
+            </div>
+            </a>
+            <a href="/web/productInfo">
+            <div class="imgs_frame">
+                <img src="../static/image/2.png"/>
+                <div class="imgs_title">高能抗衰精华液</div>
+                <div class="imgs_money">$35 / 30ml</div>
+            </div>
+            </a>
+            <a href="/web/productInfo">
+            <div class="imgs_frame">
+                <img src="../static/image/1.png"/>
+                <div class="imgs_title">高能抗衰精华液</div>
+                <div class="imgs_money">$35 / 30ml</div>
+            </div>
+            </a>
+            <a href="/web/productInfo">
+            <div class="imgs_frame">
+                <img src="../static/image/2.png"/>
+                <div class="imgs_title">高能抗衰精华液</div>
+                <div class="imgs_money">$35 / 30ml</div>
+            </div>
+            </a>-->
+        </div>
+    </div>
+</div>
+
+<div class="foot">
+    <div class="footlogo"></div>
+    <div class="footli">
+        <div class="footlileft">
+            <div>细胞科技 换醒美丽</div>
+            <div class="footEnglish">Cell Pretty Evocation</div>
+        </div>
+        <div class="footliright">
+            <div class="lirightleft">
+                <div class="menu1">产品甄选</div>
+                <div class="menu2">会员专享</div>
+                <div class="menu3">品牌专研</div>
+                <div class="menu4">相关文章</div>
+            </div>
+            <div class="lirightright">
+                <div class="imgli1">
+                    <img src="../static/image/foot/phone.png"/>
+                    <span>+86 0757 2639 1305</span>
+                </div>
+                <div class="imgli2">
+                    <img src="../static/image/foot/email.png"/>
+                    <span> info@cpeskincare.cn</span>
+                </div>
+                <div class="imgli3">
+                    <img src="../static/image/foot/weixin.png"/>
+                    <img src="../static/image/foot/weibo.png"/>
+                    <img src="../static/image/foot/dianzhuan.png"/>
+                    <img src="../static/image/foot/tonm.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="linediv"></div>
+    <div class="foottiaokuan">
+
+        <div class="tiaokuan1">©CPE有限公司版权所有。沪ICP备0800523号</div>
+        <div class="tiaokuan2">细则及条款</div>
+        <div class="tiaokuan3">隐私条款</div>
+        <div class="tiaokuan4">用户生成的权限条款</div>
+    </div>
+</div>
+
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/layui/layui.js"></script>
+<script>
+
+    function GetQueryString(strName)
+    {
+        var strHref = document.location.toString();
+        var intPos = strHref.indexOf("?");
+        var strRight = strHref.substr(intPos + 1); //==========获取到右边的参数部分
+        var arrTmp = strRight.split("&"); //=============以&分割成数组
+
+        for (var i = 0; i < arrTmp.length; i++) //===========循环数组
+        {
+            var dIntPos = arrTmp[i].indexOf("=");
+            var paraName = arrTmp[i].substr(0, dIntPos);
+            var paraData = arrTmp[i].substr(dIntPos + 1);
+            if (paraName.toUpperCase() == strName.toUpperCase()) {
+                return paraData;
+            }
+        }
+        return "";
+    }
+    var title=encodeURI(GetQueryString("title"));
+
+    //JavaScript代码区域
+    layui.use(['element', 'form', 'carousel'], function () {
+        var element = layui.element;
+        var form = layui.form;
+
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#test1'
+            , width: '100%' //设置容器宽度
+            , arrow: 'none' //始终显示箭头
+            //,anim: 'updown' //切换动画方式
+            , interval: '3000'
+        });
+
+        $.ajax({
+            async:false,
+            url:  '/sys/product/getProductSeriesDictListToIndex',
+            type: "post",
+            data: {},
+            success: function (d) {
+                if (d.code == 200) {
+
+                    var seriesList=d.data;
+                    var html='';
+                    for(var i=0;i<seriesList.length;i++){
+                        html+='  <option value="'+seriesList[i].id+'">'+seriesList[i].name+'</option>'
+                    }
+                    $("#series").append(html);
+                    form.render('select');
+                }
+            }
+        })
+        $.ajax({
+            async:false,
+            url:  '/sys/product/getProductCategoryDictListToIndex',
+            type: "post",
+            data: {},
+            success: function (d) {
+                if (d.code == 200) {
+
+                    var categoryList=d.data;
+                    var html='';
+                    for(var i=0;i<categoryList.length;i++){
+                        html+='  <option value="'+categoryList[i].id+'">'+categoryList[i].name+'</option>'
+                    }
+                    $("#category").append(html);
+                    form.render('select');
+                }
+            }
+        })
+        var hearSearch=0
+        if(title!=null || title!=''){
+            hearSearch=1;
+        }
+        $.ajax({
+            async:false,
+            url:  '/sys/product/getProductInfoListToProduct',
+            type: "post",
+            data: {title:title,
+                hearSearch:hearSearch},
+            success: function (d) {
+                if (d.code == 200) {
+
+                    var productList=d.data;
+                    var html='';
+                    for(var i=0;i<productList.length;i++){
+                        html+='<a href="/web/productInfo?id='+productList[i].id+'">\n' +
+                            '<div class="imgs_frame">' +
+                            '<img src="'+productList[i].titleImg+'"/>' +
+                            '<div class="imgs_title">'+productList[i].title+'</div>' +
+                            '<div class="imgs_money">'+productList[i].norms+'</div>' +
+                            '</div>\n' +
+                            '</a> '
+                    }
+                    $("#productList").append(html);
+
+                }
+            }
+        })
+
+
+        $("#productSearch").click(()=>{
+            var formDate={
+                typeSeries:$("select[name=typeSeries]").val(),
+                typeCategory:$("select[name=typeCategory]").val(),
+                title:$("input[name=title1]").val(),
+            }
+            console.log(formDate);
+            $("#productList").empty();
+            $.ajax({
+                async:false,
+                url:  '/sys/product/getProductInfoListToProduct',
+                type: "post",
+                data: formDate,
+                success: function (d) {
+                    if (d.code == 200) {
+
+                        var productList=d.data;
+                        var html='';
+                        for(var i=0;i<productList.length;i++){
+                            html+='<a href="/web/productInfo?id='+productList[i].id+'">\n' +
+                                '<div class="imgs_frame">' +
+                                '<img src="'+productList[i].titleImg+'"/>' +
+                                '<div class="imgs_title">'+productList[i].title+'</div>' +
+                                '<div class="imgs_money">'+productList[i].norms+'</div>' +
+                                '</div>\n' +
+                                '</a> '
+                        }
+                        $("#productList").append(html);
+                    }
+                }
+            })
+
+        })
+        $("#productListHear").click(()=>{
+            window.location.href="/web/product?title="+$("input[name=title]").val();
+        })
+
+    });
+    var cot = 0;//设置一个计数器，初始值为0；作用是用来监听点击切换的时候哪一个图片应该隐藏或者显示
+    function nex() {
+        if (cot <= 2) {
+            $('.imgs .imgs_frame').eq(cot).animate({'margin-left': '-305px'}, 500);
+            cot++;
+        }
+    }
+
+    function pre() {
+        if (cot > 0) {
+            cot--;
+            $('.imgs .imgs_frame').eq(cot).animate({'margin-left': '0'}, 500);
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

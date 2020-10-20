@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>wideTable 列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../static/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="../static/css/list.css" media="all"/>
+</head>
+<body class="childrenBody">
+
+<blockquote class="layui-elem-quote news_search">
+    <div>
+        <div>
+            <button class="layui-btn" id="addWideTable">添加模块</button>
+        </div>
+    </div>
+
+</blockquote>
+<div class="layui-form">
+    <table id="userList" lay-filter="userList"></table>
+</div>
+<script type="text/javascript" src="../static/layui/layui.js"></script>
+<script type="text/html" id="barEdit">
+
+    <a class="layui-btn layui-btn-xs" lay-event="edit3">修改排序</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+
+</script>
+
+<script type="text/html" id="typeTpl">
+    {{#
+    if(d.color === 'black'){
+    return '<span >黑色</span>';
+    } else if(d.color === 'white'){
+    return '<span >白色</span>';
+    }
+    }}
+</script>
+<script type="text/html" id="headImg">
+    <div ><img src=" {{d.img}} " style=" width: 28px;" /></div>
+</script>
+
+<script>
+    var $layer;
+    var $table;
+    var indexadd;
+
+    layui.config({base: "js/"}).use(['form', 'layer', 'jquery', 'table', 'laydate', 'upload'], function () {
+        var form = layui.form,
+            table = layui.table,
+            layer = layui.layer,
+            upload = layui.upload,
+            $ = layui.jquery;
+
+        //加载页面数据
+        table.render({
+            id: 'userList'
+            , elem: '#userList'
+            , url: '/sys/wideTable/getWideTableList' //数据接口
+            , limit: 10//每页默认数
+            , limits: [10, 20, 30, 40]
+            , cols: [
+                [ //表头
+                {
+                    type: 'numbers',
+                    title: '序号',
+                    width: 50
+                }, {
+                    field: 'title',
+                    title: '标题',
+                    width: 130
+                }, {
+                    field: 'titleTwo',
+                    title: '副标题',
+                    width: 130
+                }, {
+                    field: 'buttonText',
+                    title: '按钮文本',
+                    width: 130
+                }, {
+                    field: 'buttonHref',
+                    title: '按钮链接',
+                    width: 130
+                }, {
+                    field: 'img',
+                    title: '图片',
+                    width: 100,
+                    templet: '#headImg'
+                }, {
+                    field: 'img',
+                    title: '图片地址',
+                },  {
+                    field: 'color',
+                    title: '颜色',
+                    width: 130,
+                    templet: '#typeTpl'
+                }, {
+                    field: 'sort',
+                    title: '排序',
+                    width: 60
+                },{
+                    title: '操作',
+                    toolbar: '#barEdit',
+                    width: 230
+
+                }]
+            ]
+            , page: false  //开启分页
+            , where: {timestamp: (new Date()).valueOf(),type:1}
+        });
+
+        //添加图片
+        $("#addWideTable").click(function () {
+            indexadd = layer.open({
+                title: "添加模块",
+                type: 2,
+                content: "/sys/addWideTablePage",
+                success: function (layero, index) {
+
+                }
+            })
+            layui.layer.full(indexadd);
+        })
+
+        //监听工具条
+        table.on('tool(userList)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'del') {
+                layer.confirm('真的删除此条数据吗?', function (index) {
+                    $.ajax({
+                        async:false,
+                        url:  '/sys/wideTable/deleteWideTable',
+                        type: "post",
+                        data: {
+                            id: data.id
+                        },
+                        success: function (d) {
+                            if (d.code == 200) {
+                                //执行重载
+                                table.reload('userList', {
+                                    page: {
+                                        curr: 1
+                                        //重新从第 1 页开始
+                                    },
+                                    where: {
+                                        //key: {
+                                        _t:new Date().getTime()
+                                    }
+                                });
+                            } else {
+                                layer.msg("权限不足！", {
+                                    icon: 5
+                                });
+                            }
+                        }
+                    })
+                    layer.close(index);
+                });
+            }
+
+            if(obj.event==='edit3'){
+                var indexOpen=  layer.open({
+                    title: '修改排序',
+                    type: 1,
+                    area: ['500px', '350px'],
+                    offset: ['50px', '250px'],
+                    content: '<blockquote class="layui-elem-quote layui-text">注意事项: 请填写相关的数据信息! </blockquote>' +
+                        '<form class="layui-form"> ' +
+                        '<div class="layui-form-item">' +
+                        '<div class="layui-inline">' +
+                        '<label class="layui-form-label">排序号:</label>' +
+                        '<div class="layui-input-inline">' +
+                        '<input type="text"  required lay-verify="number" name="sort"  class="layui-input" value="' + data.sort + '" >' +
+                        '</div></div>' +
+                        '</div>' +
+                        '</form>',
+                    btnAlign: 'c',
+                    btn: ['确定', '取消'],
+                    yes: function (index, layero) {
+
+                        if ($("input[name=sort]").val() == null || $("input[name=sort]").val() == "") {
+
+                            layer.msg('请输入排序号', {
+                                icon: 5,
+                                time: 2000,
+                                area: '200px',
+                                type: 0,
+                                anim: 6
+                            }, function () {
+                                $("input[name=sort]").focus();
+                            });
+                            return false;
+                        }
+                        var formData = {
+                            sort: $("input[name=sort]").val(),
+                            id: data.id
+                        };
+                        $.ajax({
+                            type: "post",
+                            url: "/sys/wideTable/updateSortWideTable",
+                            async: false,
+                            data: formData,
+                            dataType: "json",
+                            success: function (d) {
+                                //判断是否发送成功
+                                if (d.code == 200) {
+                                    msg = "修改成功！";
+                                    flag = true;
+                                } else {
+                                    msg = d.msg;
+                                }
+                            }
+                        });
+                        setTimeout(function () {
+                            layui.layer.close(indexOpen);
+                            if (flag) {
+                                layer.msg(msg, {icon: 1, time: 2000, area: '200px', type: 0});
+                                setTimeout(function () {
+                                    uploadTable();
+                                }, 1000);
+                            } else {
+                                layer.msg(msg, {icon: 5, time: 2000, area: '200px', type: 0, anim: 6});
+                            }
+                        }, 2000);
+                        return false;
+                    }, btn2: function (index, layero) {
+                        layer.msg("取消");
+                        //return false 开启该代码可禁止点击该按钮关闭
+                    }, cancel: function () {
+                        layer.msg("关闭窗口");
+                        //右上角关闭回调
+                        //return false 开启该代码可禁止点击该按钮关闭
+                    },
+                    success: function () {
+                        layui.use('form', function () {
+                            var form = layui.form; //只有执行了这一步，部分表单元素才会修饰成功
+                            form.render('checkbox');
+                            form.render('select');
+                            form.on('checkbox(istrue)', function (data) {
+                                /* if(data.elem.checked){
+                                 emailConfig['isenterprise']=1;
+                                 }; //是否被选中，true或者false*/
+                            });
+
+                        });
+                    }
+                })
+            }
+        });
+
+
+        $table = table;
+        $layer = layer;
+
+    })
+
+
+    //添加后刷新表格
+    function uploadTable() {
+        $layer.close(indexadd);
+        //执行重载
+        $table.reload('userList', {
+            page: {
+                curr: 1
+                //重新从第 1 页开始
+            },
+            where: {
+                _t: new Date().getTime()
+            }
+        });
+    }
+
+
+    //格式化时间
+    function formatTime(datetime, fmt) {
+        if (datetime == null || datetime == 0) {
+            return "";
+        }
+        if (parseInt(datetime) == datetime) {
+            if (datetime.length == 10) {
+                datetime = parseInt(datetime) * 1000;
+            } else if (datetime.length == 13) {
+                datetime = parseInt(datetime);
+            }
+        }
+        datetime = new Date(datetime);
+        var o = {
+            "M+": datetime.getMonth() + 1, //月份
+            "d+": datetime.getDate(), //日
+            "h+": datetime.getHours(), //小时
+            "m+": datetime.getMinutes(), //分
+            "s+": datetime.getSeconds(), //秒
+            "q+": Math.floor((datetime.getMonth() + 3) / 3), //季度
+            "S": datetime.getMilliseconds()
+            //毫秒
+        };
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (datetime.getFullYear() + "")
+                .substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt))
+                fmt = fmt.replace(RegExp.$1,
+                    (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k])
+                        .substr(("" + o[k]).length)));
+        return fmt;
+    }
+</script>
+</body>
+</html>

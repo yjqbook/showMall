@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yys.mall.mapper.DbArticleSectionMapper">
+
+
+
+    <insert id="addArticleSection" parameterType="com.yys.mall.entity.DbArticleSection">
+        insert INTO db_article_section
+        (type,content,sort,article_info_id) values
+        (#{type},#{content},#{sort},#{articleInfoId})
+    </insert>
+
+    <select id="getArticleSectionList" resultType="java.util.Map" parameterType="java.util.Map">
+        SELECT
+        das.id as id,
+        das.type as type,
+        das.content as content,
+        das.sort as sort,
+        das.article_info_id as articleInfoId,
+        dai.title as articleInfoTitle
+        FROM db_article_section das
+        left join db_article_info dai on dai.id=das.article_info_id
+        where das.status=0 and das.article_info_id=#{articleInfoId}
+       ORDER BY das.sort DESC limit #{page} , #{limit}
+    </select>
+    <select id="getArticleSectionListCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+        SELECT
+        count(*)
+        FROM  db_article_section das
+        where das.status=0 and article_info_id=#{articleInfoId}
+    </select>
+
+    <update id="deleteArticleSection" parameterType="java.lang.Integer">
+        update db_article_section set status=1 where id=#{id}
+    </update>
+    <update id="updateSortSection">
+        update db_article_section set sort=#{sort} where id=#{id}
+    </update>
+
+
+
+    <select id="getArticleSectionListById" resultType="java.util.Map">
+        SELECT
+        das.id as id,
+        das.type as type,
+        das.content as content,
+        das.sort as sort,
+        das.article_info_id as articleInfoId
+        FROM db_article_section das
+        where das.status=0 and article_info_id=#{id}
+       ORDER BY das.sort DESC
+    </select>
+
+
+</mapper>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yys.mall.mapper.DbWideTableMapper">
+
+
+    <insert id="addWideTable" parameterType="com.yys.mall.entity.DbWideTable">
+        insert INTO db_wide_table
+        (type,title,title_two,button_href,button_text,img,color,sort) values
+        (#{type},#{title},#{titleTwo},#{buttonHref},#{buttonText},#{img},#{color},#{sort})
+    </insert>
+
+    <select id="getWideTableList" resultType="java.util.Map" parameterType="java.util.Map">
+        SELECT
+        dwt.id AS id,
+        dwt.type AS type,
+        dwt.title AS title,
+        dwt.title_two AS titleTwo,
+        dwt.button_text AS buttonText,
+        dwt.button_href AS buttonHref,
+        dwt.img AS img,
+        dwt.color AS color,
+        dwt.sort AS sort
+        FROM db_wide_table dwt
+        where dwt.status=0
+        <if test="type!=null and type!= 0 ">
+            and dwt.type=#{type}
+        </if>
+       ORDER BY dwt.sort DESC
+    </select>
+
+
+
+    <update id="deleteWideTable" parameterType="java.lang.Integer">
+        update db_wide_table set status=1 where id=#{id}
+    </update>
+
+
+    <update id="updateSortWideTable">
+        update db_wide_table set sort=#{sort} where id=#{id}
+    </update>
+
+
+</mapper>

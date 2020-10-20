@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>CPE首页</title>
+    <link rel="stylesheet" href="../static/layui/css/layui.css">
+    <link rel="stylesheet" href="../static/css/headAndFood.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<body>
+
+<div class="head">
+    <a href="/web/index">
+        <div class="head_img">
+            <img src="../static/image/logo.png"/>
+        </div>
+    </a>
+    <div class="head_search">
+        <div class="layui-form head_search_form">
+            <input type="text" name="title" class="layui-input" placeholder="输入关键词搜索">
+        </div>
+        <i class="layui-icon layui-icon-search" id="productListHear"></i>
+    </div>
+    <div class="head_menu">
+        <ul>
+            <li><a href="/web/product">产品甄选</a></li>
+            <li><a href="/web/member">会员专享</a></li>
+            <li><a href="/web/brand">品牌专研</a></li>
+            <li><a href="/web/article">相关文章</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="content">
+    <div class="banner">
+        <div class="layui-carousel" id="test1">
+            <div carousel-item id="banner">
+                <!--<div><img src="../../static/image/bannerindex1.png"></div>
+                <div><img src="../../static/image/bannerindex2.png"></div>
+                <div><img src="../../static/image/bannerindex3.png"></div>
+                <div><img src="../../static/image/bannerindex4.png"></div>
+                <div><img src="../../static/image/bannerindex1.png"></div>
+                <div><img src="../../static/image/bannerindex2.png"></div>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="banner2">
+
+        <div class="banner2_title">甄选系列</div>
+        <div class="banner2_title2">SELECTION</div>
+
+        <div >
+
+            <div style=" width: 8.3333%; display: block; float: left;">
+                <div onclick="nex()" class="nex"><i class="layui-icon    layui-icon-left"></i></div>
+            </div>
+            <div style=" width: 83.3333%; display: block; float: left;">
+                <div class="banner2_imgs">
+                    <!-- 这个最外围的容器div宽度为900px，每张图宽为300px，所以只显示3张，剩下的图超出容器隐藏起来 -->
+                    <div class="imgs" id="product"><!--这个div的作用是让所有的图片都排在同一水平上，这样子切换的时候效果会更好-->
+                        <!--<div class="imgs_frame">
+                            <img src="../static/image/1.png"/>
+                            <div class="imgs_title">高能抗衰精华液</div>
+                            <div class="imgs_money">$35 / 30ml</div>
+                        </div>
+                        <div class="imgs_frame">
+                            <img src="../static/image/2.png"/>
+                            <div class="imgs_title">高能抗衰精华液</div>
+                            <div class="imgs_money">$35 / 30ml</div>
+                        </div>
+                        <div class="imgs_frame">
+                            <img src="../static/image/1.png"/>
+                            <div class="imgs_title">高能抗衰精华液</div>
+                            <div class="imgs_money">$35 / 30ml</div>
+                        </div>
+                        <div class="imgs_frame">
+                            <img src="../static/image/2.png"/>
+                            <div class="imgs_title">高能抗衰精华液</div>
+                            <div class="imgs_money">$35 / 30ml</div>
+                        </div>
+                        <div class="imgs_frame">
+                            <img src="../static/image/1.png"/>
+                            <div class="imgs_title">高能抗衰精华液</div>
+                            <div class="imgs_money">$35 / 30ml</div>
+                        </div>
+                        <div class="imgs_frame">
+                            <img src="../static/image/2.png"/>
+                            <div class="imgs_title">高能抗衰精华液</div>
+                            <div class="imgs_money">$35 / 30ml</div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+            <div  style=" width: 8.3333%; display: block; float: right;">
+                <div onclick="pre()" class="pre"><i class="layui-icon  layui-icon-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner3">
+        <!--<div class="banli">
+            <div class="bancon">
+                <div class="bantitleen">REVERSE AGING<br> CELL REPAIR SERIES</div>
+                <div class="bantitlezn">逆龄细胞修复系列</div>
+                <div class="banmore">了解更多</div>
+            </div>
+        </div>
+        <div class="banli2">
+            <div class="bancon2">
+                <div class="bantitleen2">COLDEN REPAIR <br>ESSENCE LYOPHI- <br>LIZED SERUM</div>
+                <div class="bantitlezn2">焕肤修护金翎精华</div>
+                <a href="www.baidu.com"><div class="banmore2">了解更多</div></a>
+            </div>
+        </div>-->
+    </div>
+
+    <div class="banner4">
+        <div class="banimg">
+            <div class="banimgli banimgli1">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="banimgli banimgli2">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="banimgli banimgli3">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="foot">
+    <div class="footlogo"></div>
+    <div class="footli" >
+        <div class="footlileft">
+            <div>细胞科技    换醒美丽</div>
+            <div class="footEnglish">Cell Pretty Evocation</div>
+        </div>
+        <div class="footliright">
+            <div class="lirightleft">
+                <div  class="menu1">产品甄选</div>
+                <div  class="menu2">会员专享</div>
+                <div  class="menu3">品牌专研</div>
+                <div  class="menu4">相关文章</div>
+            </div>
+            <div class="lirightright">
+                <div class="imgli1" >
+                    <img src="../static/image/foot/phone.png"/>
+                    <span>+86 0757 2639 1305</span>
+                </div>
+                <div  class="imgli2"  >
+                    <img src="../static/image/foot/email.png"/>
+                    <span> info@cpeskincare.cn</span>
+                   </div>
+                <div  class="imgli3" >
+                    <img src="../static/image/foot/weixin.png"/>
+                    <img src="../static/image/foot/weibo.png"/>
+                    <img src="../static/image/foot/dianzhuan.png"/>
+                    <img src="../static/image/foot/tonm.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="linediv"></div>
+    <div class="foottiaokuan">
+
+        <div class="tiaokuan1">©CPE有限公司版权所有。沪ICP备0800523号</div>
+        <div  class="tiaokuan2">细则及条款</div>
+        <div  class="tiaokuan3" >隐私条款</div>
+        <div  class="tiaokuan4">用户生成的权限条款</div>
+    </div>
+</div>
+
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/layui/layui.js"></script>
+<script>
+
+    var numLeft=0;
+    var numRight=0;
+
+    //JavaScript代码区域
+    layui.use(['element', 'form', 'carousel'], function () {
+        var element = layui.element;
+        var form = layui.form;
+
+        var carousel = layui.carousel;
+        //建造实例
+       var ins= carousel.render({
+            elem: '#test1'
+            , width: '100%' //设置容器宽度
+            , arrow: 'none' //始终显示箭头
+            //,anim: 'updown' //切换动画方式
+            , interval: '5000'
+        });
+
+
+        $.ajax({
+            async:false,
+            url:  '/sys/index/getIndexBanner',
+            type: "post",
+            data: {},
+            success: function (d) {
+                if (d.code == 200) {
+
+                    var bannerList=d.data;
+                    var html='';
+                    for(var i=0;i<bannerList.length;i++){
+                        html+=' <div><img src="'+bannerList[i].bannerImg+'"></div>'
+                    }
+                   $("#banner").append(html);
+                    ins.reload();
+                }
+            }
+        })
+
+        $.ajax({
+            async:false,
+            url:  '/sys/product/getProductInfoListToIndex',
+            type: "post",
+            data: {},
+            success: function (d) {
+                if (d.code == 200) {
+
+                    var productList=d.data;
+                    var html='';
+                    for(var i=0;i<productList.length;i++){
+                        html+=' <a href="/web/productInfo?id='+productList[i].id+'"> <div class="imgs_frame">'+
+                            ' <img src="'+productList[i].titleImg+'"/>'+
+                        ' <div class="imgs_title">'+productList[i].title+'</div>'+
+                        ' <div class="imgs_money">'+productList[i].norms+'</div>'+
+                        '  </div></a>';
+                    }
+                    $("#product").append(html);
+                    $("#product").css('width',(productList.length*335)+'px');
+                    numLeft=productList.length-3;
+                }
+            }
+        })
+
+
+        $.ajax({
+            async:false,
+            url:  '/sys/wideTable/getWideTableList',
+            type: "post",
+            data: {type:1},
+            success: function (d) {
+                if (d.code == 0) {
+                    var productList=d.data;
+                    var html='';
+                    for(var i=0;i<productList.length;i++){
+                        if(productList[i].color=='black'){
+                            html+='<div class="banli"    style="background-image: url('+productList[i].img+'); " >\n' +
+                                '            <div class="bancon">\n' +
+                                '                <div class="bantitleen">'+productList[i].title+'</div>\n' +
+                                '                <div class="bantitlezn">'+productList[i].titleTwo+'</div>\n' +
+                                '                <a href="'+productList[i].buttonHref+'" style="color: black;" target="_blank"> <div class="banmore">'+productList[i].buttonText+'</div></a> \n' +
+                                '            </div>\n' +
+                                '        </div>';
+                        }else  if(productList[i].color=='white'){
+                            html+='<div class="banli2"  style="background-image: url('+productList[i].img+'); " >\n' +
+                                '            <div class="bancon2">\n' +
+                                '                <div class="bantitleen2">'+productList[i].title+'</div>\n' +
+                                '                <div class="bantitlezn2">'+productList[i].titleTwo+'</div>\n' +
+                                '                <a href="'+productList[i].buttonHref+'" style="color: white;"  target="_blank"> <div class="banmore2">'+productList[i].buttonText+'</div></a> \n' +
+                                '            </div>\n' +
+                                '        </div>';
+                        }
+                    }
+                    $(".banner3").append(html);
+                    // $("#product").css('width',(productList.length*335)+'px');
+                    // numLeft=productList.length-3;
+                }
+            }
+        })
+
+
+        $("#productListHear").click(()=>{
+            window.location.href="/web/product?title="+$("input[name=title]").val();
+        })
+
+
+
+
+    });
+    var cot = 0;//设置一个计数器，初始值为0；作用是用来监听点击切换的时候哪一个图片应该隐藏或者显示
+    function nex() {
+        if (cot <= 2 && numLeft>0) {
+            $('.imgs .imgs_frame').eq(cot).animate({'margin-left': '-305px'}, 500);
+            cot++;
+            numLeft--;
+            numRight++;
+        }
+    }
+
+    function pre() {
+        if (cot > 0  && numRight>0) {
+            cot--;
+            $('.imgs .imgs_frame').eq(cot).animate({'margin-left': '0'}, 500);
+            numLeft++;
+            numRight--;
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

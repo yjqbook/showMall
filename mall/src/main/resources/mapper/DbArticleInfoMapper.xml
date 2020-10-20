@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yys.mall.mapper.DbArticleInfoMapper">
+
+
+    <!--更新管理员用户-->
+    <insert id="addArticleInfo" parameterType="com.yys.mall.entity.DbArticleInfo">
+        insert INTO db_article_info
+        (title,title_two,title_img,sort,create_time) values
+        (#{title},#{titleTwo},#{titleImg},#{sort},#{createTime})
+    </insert>
+
+    <select id="getArticleInfoList" resultType="java.util.Map" parameterType="java.util.Map">
+        SELECT
+        dai.id AS id,
+        dai.title AS title,
+        dai.title_two AS titleTwo,
+        dai.title_img AS titleImg,
+        dai.sort AS sort,
+        dai.create_time AS createTime
+        FROM db_article_info dai
+        where dai.status=0
+       ORDER BY dai.sort DESC,dai.create_time DESC
+    </select>
+    <select id="getArticleInfoListCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+        SELECT
+        count(*)
+        FROM  db_article_info dai
+        where dai.status=0
+    </select>
+
+    <select id="getArticleInfoListToArticle" resultType="java.util.Map" >
+        SELECT
+        dai.id AS id,
+        dai.title AS title,
+        dai.title_two AS titleTwo,
+        dai.title_img AS titleImg,
+        dai.sort AS sort,
+        dai.create_time AS createTime
+        FROM db_article_info dai
+        where dai.status=0
+        ORDER BY dai.sort DESC,dai.create_time DESC
+    </select>
+
+
+
+
+    <select id="getArticleInfoById" resultType="java.util.Map" parameterType="java.lang.Integer">
+        SELECT
+        dai.id AS id,
+        dai.title AS title,
+        dai.title_two AS titleTwo,
+        dai.title_img AS titleImg,
+        dai.sort AS sort,
+        dai.create_time AS createTime
+        FROM db_article_info dai
+        where dai.id=#{id}
+    </select>
+
+
+
+    <update id="deleteArticleInfo" parameterType="java.lang.Integer">
+        update db_article_info set status=1 where id=#{id}
+    </update>
+
+    <update id="updateArticleInfo" parameterType="java.util.Map">
+          update db_article_info set
+            title=#{title},
+            title_two=#{titleTwo},
+            title_img=#{titleImg},
+            sort=#{sort}
+          where id=#{id}
+    </update>
+
+</mapper>
