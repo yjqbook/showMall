@@ -86,7 +86,7 @@ jwt:
   jwtExpires: 120
 
 #文件导出路径
-pathDir: /usr/project/image
+pathDir: D:/usr/project/image
 
 
 
