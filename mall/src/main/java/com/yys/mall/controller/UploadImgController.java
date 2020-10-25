@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -154,4 +155,97 @@ public class UploadImgController {
         }
     }
 
+
+    @RequestMapping(value = "bannerVideo",method = {RequestMethod.GET,RequestMethod.POST})
+    @ResponseBody
+    public Map bannerVideo(@RequestParam(value="file",required=false) MultipartFile file, HttpServletRequest request, HttpServletResponse response){
+        String prefix="";
+        String dateStr="";
+        String monthStr=String.valueOf((int)((Math.random()*9+1)*100000));
+        //保存上传
+        OutputStream out = null;
+        InputStream fileInput=null;
+        try{
+            if(file!=null){
+                String originalName = file.getOriginalFilename();
+                prefix=originalName.substring(originalName.lastIndexOf(".")+1);
+                dateStr = new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date());
+                String filepath = pathDir +File.separator +dateStr+"_"+monthStr + "." + prefix;
+                File files=new File(filepath);
+                //打印查看上传路径
+                System.out.println(filepath);
+                if(!files.getParentFile().exists()){
+                    files.getParentFile().mkdirs();
+                }
+                file.transferTo(files);
+            }
+        }catch (Exception e){
+        }finally{
+            try {
+                if(out!=null){
+                    out.close();
+                }
+                if(fileInput!=null){
+                    fileInput.close();
+                }
+            } catch (IOException e) {
+            }
+        }
+        Map<String,Object> map2=new HashMap<>();
+        Map<String,Object> map=new HashMap<>();
+        System.out.println(request.getRequestURI());
+        System.out.println(request.getRequestURL());
+        map.put("code",0);
+        map.put("msg","");
+        map.put("data",map2);
+        map2.put("src",(File.separator+"sys"+File.separator+"uploadImg"+File.separator +"downLoadBannerVideo"+File.separator + dateStr+"_"+monthStr + "." + prefix).replace("\\", "/"));
+        return map;
+    }
+
+
+    @RequestMapping(value = "downLoadBannerVideo/{img}",method = {RequestMethod.GET,RequestMethod.POST})
+    public void downLoadBannerVideo(@PathVariable("img") String img, HttpServletRequest request, HttpServletResponse response) throws Exception{
+
+        // 配置文件下载
+        response.setHeader("content-type", "application/octet-stream");
+        response.setContentType("application/octet-stream");
+        // 下载文件能正常显示中文
+        response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode("video.mp4", "UTF-8"));
+        // 实现文件下载
+        byte[] buffer = new byte[1024];
+        FileInputStream fis = null;
+        BufferedInputStream bis = null;
+        try {
+            fis = new FileInputStream(new File(pathDir +File.separator +img));
+            bis = new BufferedInputStream(fis);
+            OutputStream os = response.getOutputStream();
+            int i = bis.read(buffer);
+            while (i != -1) {
+                os.write(buffer, 0, i);
+                i = bis.read(buffer);
+            }
+            System.out.println("Download  successfully!");
+//            return "successfully";
+
+        } catch (Exception e) {
+            System.out.println("Download  failed!");
+//            return "failed";
+
+        } finally {
+            if (bis != null) {
+                try {
+                    bis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (fis != null) {
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }

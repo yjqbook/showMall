@@ -245,5 +245,24 @@ public class SysPageController {
         return "sys/wideTableMemberAdd";
     }
 
+    @RequestMapping("/wideTableVideoListPage")
+    public String wideTableVideoListPage(HttpServletRequest request,ModelMap modelMap) {
+        DbAdminUser adminUser=(DbAdminUser)request.getSession().getAttribute("adminUser");
+        if(adminUser==null){
+            return "redirect:/sys/login";
+        }
+        return "sys/wideTableVideoList";
+    }
+
+
+    @RequestMapping("/addWideTableVideoPage")
+    public String addWideTableVideoPage(HttpServletRequest request,ModelMap modelMap) {
+        DbAdminUser adminUser=(DbAdminUser)request.getSession().getAttribute("adminUser");
+        if(adminUser==null){
+            return "redirect:/sys/login";
+        }
+        return "sys/wideTableVideoAdd";
+    }
+
 
 }

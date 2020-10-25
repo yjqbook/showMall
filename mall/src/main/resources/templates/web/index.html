@@ -100,6 +100,10 @@
         </div>
     </div>
 
+    <div class="videoBanner">
+        <video id="demo12" src="" style="width: 100%"   autoplay="autoplay" preload="none" controls="controls"></video>
+    </div>
+
     <div class="banner3">
         <!--<div class="banli">
             <div class="bancon">
@@ -280,7 +284,17 @@
                 }
             }
         })
-
+        $.ajax({
+            async:false,
+            url:  '/sys/wideTable/getWideTableList',
+            type: "post",
+            data: {type:3},
+            success: function (d) {
+                if (d.code == 0) {
+                    $('#demo12').attr('src', d.data[0].img); //图片链接（base64）
+                }
+            }
+        })
 
         $("#productListHear").click(()=>{
             window.location.href="/web/product?title="+$("input[name=title]").val();
