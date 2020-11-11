@@ -141,31 +141,31 @@
     transition: .5s all;
 }
 
-.banlis{
-    float: left;
-    margin-left: 15%;
-    margin-right: 15%;
-    width: 70%;
+.banlis {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1600px;
+    padding: 0 100px;
+    margin: 0 auto;
 }
-.imgs_frame{
+
+.imgs_frame {
     color: white;
-    width: 29.3333%;
-    height: 350px;
+    width: calc(33.33% - 20px);
+    height: calc(40vw - 88px);
+    min-height: 390px;
+    max-height: 550px;
     display: block;
     float: left;
     text-align: center;
     background-color: #1f2227;
-    border: 1px solid #1f2227;
-    margin: auto;
-    margin-right: 20px;
-    margin-left: 10px;
-    margin-bottom: 60px;
-    margin-top: 20px;
-    object-fit:cover;
+    margin: 70px 10px 0;
 }
+
 .imgs_frame img{
-  width: 100%;
-    object-fit:cover;
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
 }
 
 .imgs_title{
