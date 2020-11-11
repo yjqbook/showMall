@@ -67,11 +67,15 @@
     width: 100%;
     height: 200px;
 }
-.ban_search_form{
+
+.ban_search_form {;
+    box-sizing: border-box;
     width: 100%;
-    display: block;
-    float: left;
-    padding-top: 120px;
+    max-width: 1600px;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    padding: 120px 100px 0;
 }
 
 .banform input{
@@ -85,21 +89,20 @@
     margin-top: 3px;
 }
 
-.ban_select1{
+.ban_select1 {
     float: left;
-    width: 12%;
-    margin-left: 20%;
+    width: 15%;
 }
-.ban_select2{
+
+.ban_select2 {
     float: left;
-    width: 12%;
-    margin-left: 13%;
+    width: 15%;
 }
-.ban_search{
+
+.ban_search {
     float: left;
-    width: 12%;
+    width: 15%;
     color: white;
-    margin-left: 9%;
 }
 
 .ban_search input{
