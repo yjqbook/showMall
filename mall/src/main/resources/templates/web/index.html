@@ -52,7 +52,7 @@
         <div class="banner2_title">甄选系列</div>
         <div class="banner2_title2">SELECTION</div>
 
-        <div >
+        <div>
 
             <div style=" width: 8.3333%; display: block; float: left;">
                 <div onclick="nex()" class="nex"><i class="layui-icon    layui-icon-left"></i></div>
@@ -94,14 +94,14 @@
                     </div>
                 </div>
             </div>
-            <div  style=" width: 8.3333%; display: block; float: right;">
+            <div style=" width: 8.3333%; display: block; float: right;">
                 <div onclick="pre()" class="pre"><i class="layui-icon  layui-icon-right"></i></div>
             </div>
         </div>
     </div>
 
     <div class="videoBanner">
-        <video id="demo12" src="" style="width: 100%"  controls="controls"></video>
+        <video id="demo12" src="" style="width: 100%" controls="controls"></video>
     </div>
 
     <div class="banner3">
@@ -143,32 +143,34 @@
 
 <div class="foot">
     <div class="footlogo"></div>
-    <div class="footli" >
+    <div class="footli">
         <div class="footlileft">
-            <div>细胞科技    换醒美丽</div>
+            <div>细胞科技 换醒美丽</div>
             <div class="footEnglish">Cell Pretty Evocation</div>
         </div>
         <div class="footliright">
             <div class="lirightleft">
-                <div  class="menu1">产品甄选</div>
-                <div  class="menu2">会员专享</div>
-                <div  class="menu3">品牌专研</div>
-                <div  class="menu4">相关文章</div>
+                <div class="menu1"><a href="/web/product">产品甄选</a></div>
+                <div class="menu2"><a href="/web/member">会员专享</a></div>
+                <div class="menu3"><a href="/web/brand">品牌专研</a></div>
+                <div class="menu4"><a href="/web/article">相关文章</a></div>
             </div>
             <div class="lirightright">
-                <div class="imgli1" >
+                <div class="imgli1">
                     <img src="../static/image/foot/phone.png"/>
                     <span>+86 0757 2639 1305</span>
                 </div>
-                <div  class="imgli2"  >
+                <div class="imgli2">
                     <img src="../static/image/foot/email.png"/>
                     <span> info@cpeskincare.cn</span>
-                   </div>
-                <div  class="imgli3" >
-                    <img src="../static/image/foot/weixin.png"/>
-                    <img src="../static/image/foot/weibo.png"/>
-                    <img src="../static/image/foot/dianzhuan.png"/>
-                    <img src="../static/image/foot/tonm.png"/>
+                </div>
+                <div class="imgli3">
+                    <div id="weixinI"> <img src="../static/image/foot/weixin.png" />
+                        <img src="../static/image/foot/weixinQ.png" id="weixinQ"/>
+                    </div>
+                    <a target="_blank" href="https://weibo.com/u/7282313186"> <img src="../static/image/foot/weibo.png"/></a>
+                    <a target="_blank" href="https://www.xiaohongshu.com/user/profile/5bda652c9333970001cf7ee9"> <img src="../static/image/foot/dianzhuan.png"/></a>
+                    <a target="_blank" href="https://cpehzp.tmall.com/"> <img src="../static/image/foot/tonm.png"/></a>
                 </div>
             </div>
         </div>
@@ -177,9 +179,9 @@
     <div class="foottiaokuan">
 
         <div class="tiaokuan1">©CPE有限公司版权所有。沪ICP备0800523号</div>
-        <div  class="tiaokuan2">细则及条款</div>
-        <div  class="tiaokuan3" >隐私条款</div>
-        <div  class="tiaokuan4">用户生成的权限条款</div>
+        <div class="tiaokuan2">细则及条款</div>
+        <div class="tiaokuan3">隐私条款</div>
+        <div class="tiaokuan4">用户生成的权限条款</div>
     </div>
 </div>
 
@@ -187,8 +189,8 @@
 <script src="../static/layui/layui.js"></script>
 <script>
 
-    var numLeft=0;
-    var numRight=0;
+    var numLeft = 0;
+    var numRight = 0;
 
     //JavaScript代码区域
     layui.use(['element', 'form', 'carousel'], function () {
@@ -197,7 +199,7 @@
 
         var carousel = layui.carousel;
         //建造实例
-       var ins= carousel.render({
+        var ins = carousel.render({
             elem: '#test1'
             , width: '100%' //设置容器宽度
             , arrow: 'none' //始终显示箭头
@@ -207,73 +209,73 @@
 
 
         $.ajax({
-            async:false,
-            url:  '/sys/index/getIndexBanner',
+            async: false,
+            url: '/sys/index/getIndexBanner',
             type: "post",
             data: {},
             success: function (d) {
                 if (d.code == 200) {
 
-                    var bannerList=d.data;
-                    var html='';
-                    for(var i=0;i<bannerList.length;i++){
-                        html+=' <div><img src="'+bannerList[i].bannerImg+'"></div>'
+                    var bannerList = d.data;
+                    var html = '';
+                    for (var i = 0; i < bannerList.length; i++) {
+                        html += ' <div><img src="' + bannerList[i].bannerImg + '"></div>'
                     }
-                   $("#banner").append(html);
+                    $("#banner").append(html);
                     ins.reload();
                 }
             }
         })
 
         $.ajax({
-            async:false,
-            url:  '/sys/product/getProductInfoListToIndex',
+            async: false,
+            url: '/sys/product/getProductInfoListToIndex',
             type: "post",
             data: {},
             success: function (d) {
                 if (d.code == 200) {
 
-                    var productList=d.data;
-                    var html='';
-                    for(var i=0;i<productList.length;i++){
-                        html+=' <a href="/web/productInfo?id='+productList[i].id+'"> <div class="imgs_frame">'+
-                            ' <img src="'+productList[i].titleImg+'"/>'+
-                        ' <div class="imgs_title">'+productList[i].title+'</div>'+
-                        ' <div class="imgs_money">'+productList[i].norms+'</div>'+
-                        '  </div></a>';
+                    var productList = d.data;
+                    var html = '';
+                    for (var i = 0; i < productList.length; i++) {
+                        html += ' <a href="/web/productInfo?id=' + productList[i].id + '"> <div class="imgs_frame">' +
+                            ' <img src="' + productList[i].titleImg + '"/>' +
+                            ' <div class="imgs_title">' + productList[i].title + '</div>' +
+                            ' <div class="imgs_money">' + productList[i].norms + '</div>' +
+                            '  </div></a>';
                     }
                     $("#product").append(html);
-                    $("#product").css('width',(productList.length*335)+'px');
-                    numLeft=productList.length-3;
+                    $("#product").css('width', (productList.length * 335) + 'px');
+                    numLeft = productList.length - 3;
                 }
             }
         })
 
 
         $.ajax({
-            async:false,
-            url:  '/sys/wideTable/getWideTableList',
+            async: false,
+            url: '/sys/wideTable/getWideTableList',
             type: "post",
-            data: {type:1},
+            data: {type: 1},
             success: function (d) {
                 if (d.code == 0) {
-                    var productList=d.data;
-                    var html='';
-                    for(var i=0;i<productList.length;i++){
-                        if(productList[i].color=='black'){
-                            html+='<div class="banli"    style="background-image: url('+productList[i].img+'); " >\n' +
+                    var productList = d.data;
+                    var html = '';
+                    for (var i = 0; i < productList.length; i++) {
+                        if (productList[i].color == 'black') {
+                            html += '<div class="banli"    style="background-image: url(' + productList[i].img + '); " >\n' +
                                 '            <div class="bancon">\n' +
-                                '                <div class="bantitleen">'+productList[i].title+'</div>\n' +
-                                '                <div class="bantitlezn">'+productList[i].titleTwo+'</div>\n' +
-                                '                <a href="'+productList[i].buttonHref+'" style="color: black;" target="_blank"> <div class="banmore">'+productList[i].buttonText+'</div></a> \n' +
+                                '                <div class="bantitleen">' + productList[i].title + '</div>\n' +
+                                '                <div class="bantitlezn">' + productList[i].titleTwo + '</div>\n' +
+                                '                <a href="' + productList[i].buttonHref + '" style="color: black;" target="_blank"> <div class="banmore">' + productList[i].buttonText + '</div></a> \n' +
                                 '            </div>\n' +
                                 '        </div>';
-                        }else  if(productList[i].color=='white'){
-                            html+='<div class="banli2"  style="background-image: url('+productList[i].img+'); " >\n' +
+                        } else if (productList[i].color == 'white') {
+                            html += '<div class="banli2"  style="background-image: url(' + productList[i].img + '); " >\n' +
                                 '            <div class="bancon2">\n' +
-                                '                <div class="bantitleen2">'+productList[i].title+'</div>\n' +
-                                '                <div class="bantitlezn2">'+productList[i].titleTwo+'</div>\n' +
-                                '                <a href="'+productList[i].buttonHref+'" style="color: white;"  target="_blank"> <div class="banmore2">'+productList[i].buttonText+'</div></a> \n' +
+                                '                <div class="bantitleen2">' + productList[i].title + '</div>\n' +
+                                '                <div class="bantitlezn2">' + productList[i].titleTwo + '</div>\n' +
+                                '                <a href="' + productList[i].buttonHref + '" style="color: white;"  target="_blank"> <div class="banmore2">' + productList[i].buttonText + '</div></a> \n' +
                                 '            </div>\n' +
                                 '        </div>';
                         }
@@ -285,10 +287,10 @@
             }
         })
         $.ajax({
-            async:false,
-            url:  '/sys/wideTable/getWideTableList',
+            async: false,
+            url: '/sys/wideTable/getWideTableList',
             type: "post",
-            data: {type:3},
+            data: {type: 3},
             success: function (d) {
                 if (d.code == 0) {
                     $('#demo12').attr('src', d.data[0].img); //图片链接（base64）
@@ -296,17 +298,15 @@
             }
         })
 
-        $("#productListHear").click(()=>{
-            window.location.href="/web/product?title="+$("input[name=title]").val();
+        $("#productListHear").click(() => {
+            window.location.href = "/web/product?title=" + $("input[name=title]").val();
         })
-
-
 
 
     });
     var cot = 0;//设置一个计数器，初始值为0；作用是用来监听点击切换的时候哪一个图片应该隐藏或者显示
     function nex() {
-        if (cot <= 2 && numLeft>0) {
+        if (cot <= 2 && numLeft > 0) {
             $('.imgs .imgs_frame').eq(cot).animate({'margin-left': '-305px'}, 500);
             cot++;
             numLeft--;
@@ -315,7 +315,7 @@
     }
 
     function pre() {
-        if (cot > 0  && numRight>0) {
+        if (cot > 0 && numRight > 0) {
             cot--;
             $('.imgs .imgs_frame').eq(cot).animate({'margin-left': '0'}, 500);
             numLeft++;

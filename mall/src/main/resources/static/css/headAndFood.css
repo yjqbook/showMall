@@ -2,9 +2,23 @@ body{
     min-width: 1200px;
     background-color: #1f2226;
 }
+#weixinI{
+    width: 30px;
+    height: 30px;
+    display: initial;
+}
 
 
-
+#weixinI:hover #weixinQ{
+    display: block;
+}
+#weixinQ{
+    display: none;
+    position: absolute;
+    top: auto;
+    width: 200px;
+    margin-top: -173px;
+}
 
 .head{
     background-color: #1f2226;
@@ -131,6 +145,11 @@ body{
     width: 45%;
     height: 100%;
     float: left;
+}
+
+.lirightleft a{
+    color: #a9a6a6;
+    text-decoration: none;
 }
 
 .menu1{
