@@ -2,22 +2,24 @@ body{
     min-width: 1200px;
     background-color: #1f2226;
 }
-#weixinI{
+
+#weixinI {
+    position: relative;
     width: 30px;
     height: 30px;
     display: initial;
 }
 
-
 #weixinI:hover #weixinQ{
     display: block;
 }
-#weixinQ{
+
+#weixinQ {
     display: none;
     position: absolute;
-    top: auto;
+    top: -215px;
+    left: -85px;
     width: 200px;
-    margin-top: -173px;
 }
 
 .head{
