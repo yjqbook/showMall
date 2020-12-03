@@ -36,6 +36,7 @@
         dbb.type
         FROM db_banner dbb
         where dbb.status=0 and dbb.type=1
+        ORDER BY dbb.sort DESC
     </select>
 
     <update id="deleteBanner" parameterType="java.lang.Integer">

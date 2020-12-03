@@ -59,7 +59,7 @@
             <label class="layui-form-label">按钮链接</label>
             <div class="layui-input-block">
                 <input type="text" name="buttonHref" class="layui-input userName"
-                       placeholder="请输入按钮链接" value="" >
+                       placeholder="请输入按钮链接(开头必须是http或者https)" value="" >
             </div>
         </div>
 
@@ -166,9 +166,24 @@
             element.init();
 
             form.on("submit(addWideTable)",function(data){
+
+
+                var buttH=data.field.buttonHref;
+
+                if(buttH!=null && buttH!=''){
+                    var Expression=/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+                    var objExp=new RegExp(Expression);
+
+                    if(!objExp.test(buttH)){
+                        layer.msg("开头必须是 http:// 或者 https:// 且需符合URL规范,检查格式是否正确",{icon: 5, time: 5000, area: '200px', type: 0, anim: 6});
+                        return false;
+                    }
+                }
+
                 //弹出loading
                 var  index= layer.load(); //上传loading
                 var msg,flag=false;
+
                 $.ajax({
                     type: "post",
                     url: "/sys/wideTable/addWideTable",
