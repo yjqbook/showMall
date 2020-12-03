@@ -152,11 +152,11 @@
                 if((productInfo.jd != null && productInfo.jd!='')
                     ||  (productInfo.tmall != null && productInfo.tmall!='') ){
                     var htmlURL='<span>立即购买:</span>\n';
-                    if(productInfo.jd != null && productInfo.jd!=''){
-                        htmlURL+='<a href="'+productInfo.jd+'" target="_blank" id="jd"> <img src="../static/image/jd.png"/></a>';
-                    }
                     if(productInfo.tmall != null && productInfo.tmall!=''){
                         htmlURL+='<a href="'+productInfo.tmall+'" target="_blank" id="tmall"> <img src="../static/image/tw.png"/></a>';
+                    }
+                    if(productInfo.jd != null && productInfo.jd!=''){
+                        htmlURL+='<a href="'+productInfo.jd+'" target="_blank" id="jd"> <img src="../static/image/jd.png"/></a>';
                     }
                     $(".banlic3").html(htmlURL);
                 }
