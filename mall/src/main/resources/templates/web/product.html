@@ -11,7 +11,7 @@
 <body>
 
 <div class="head">
-    <a href="/web/index">
+    <a href="/index">
     <div class="head_img">
         <img src="../static/image/logo.png"/>
     </div>
@@ -24,10 +24,10 @@
     </div>
     <div class="head_menu">
         <ul>
-            <li><a href="/web/product">产品甄选</a></li>
-            <li><a href="/web/member">会员专享</a></li>
-            <li><a href="/web/brand">品牌专研</a></li>
-            <li><a href="/web/article">相关文章</a></li>
+            <li><a href="/product">产品甄选</a></li>
+            <li><a href="/member">会员专享</a></li>
+            <li><a href="/brand">品牌专研</a></li>
+            <li><a href="/member">相关文章</a></li>
         </ul>
     </div>
 
@@ -68,42 +68,42 @@
             </div>
         </div>
         <div class="banlis" id="productList">
-           <!-- <a href="/web/productInfo">
+           <!-- <a href="/productInfo">
                 <div class="imgs_frame">
                     <img src="../static/image/1.png"/>
                     <div class="imgs_title">高能抗衰精华液</div>
                     <div class="imgs_money">$35 / 30ml</div>
                 </div>
             </a>
-            <a href="/web/productInfo">
+            <a href="/productInfo">
             <div class="imgs_frame">
                 <img src="../static/image/2.png"/>
                 <div class="imgs_title">高能抗衰精华液</div>
                 <div class="imgs_money">$35 / 30ml</div>
             </div>
             </a>
-            <a href="/web/productInfo">
+            <a href="/productInfo">
             <div class="imgs_frame">
                 <img src="../static/image/1.png"/>
                 <div class="imgs_title">高能抗衰精华液</div>
                 <div class="imgs_money">$35 / 30ml</div>
             </div>
             </a>
-            <a href="/web/productInfo">
+            <a href="/productInfo">
             <div class="imgs_frame">
                 <img src="../static/image/2.png"/>
                 <div class="imgs_title">高能抗衰精华液</div>
                 <div class="imgs_money">$35 / 30ml</div>
             </div>
             </a>
-            <a href="/web/productInfo">
+            <a href="/productInfo">
             <div class="imgs_frame">
                 <img src="../static/image/1.png"/>
                 <div class="imgs_title">高能抗衰精华液</div>
                 <div class="imgs_money">$35 / 30ml</div>
             </div>
             </a>
-            <a href="/web/productInfo">
+            <a href="/productInfo">
             <div class="imgs_frame">
                 <img src="../static/image/2.png"/>
                 <div class="imgs_title">高能抗衰精华液</div>
@@ -123,10 +123,10 @@
         </div>
         <div class="footliright">
             <div class="lirightleft">
-                <div class="menu1"><a href="/web/product">产品甄选</a></div>
-                <div class="menu2"><a href="/web/member">会员专享</a></div>
-                <div class="menu3"><a href="/web/brand">品牌专研</a></div>
-                <div class="menu4"><a href="/web/article">相关文章</a></div>
+                <div class="menu1"><a href="/product">产品甄选</a></div>
+                <div class="menu2"><a href="/member">会员专享</a></div>
+                <div class="menu3"><a href="/brand">品牌专研</a></div>
+                <div class="menu4"><a href="/member">相关文章</a></div>
             </div>
             <div class="lirightright">
                 <div class="imgli1">
@@ -249,7 +249,7 @@
                     var productList=d.data;
                     var html='';
                     for(var i=0;i<productList.length;i++){
-                        html+='<a href="/web/productInfo?id='+productList[i].id+'">\n' +
+                        html+='<a href="/productInfo?id='+productList[i].id+'">\n' +
                             '<div class="imgs_frame">' +
                             '<img src="'+productList[i].titleImg+'"/>' +
                             '<div class="imgs_title">'+productList[i].title+'</div>' +
@@ -283,7 +283,7 @@
                         var productList=d.data;
                         var html='';
                         for(var i=0;i<productList.length;i++){
-                            html+='<a href="/web/productInfo?id='+productList[i].id+'">\n' +
+                            html+='<a href="/productInfo?id='+productList[i].id+'">\n' +
                                 '<div class="imgs_frame">' +
                                 '<img src="'+productList[i].titleImg+'"/>' +
                                 '<div class="imgs_title">'+productList[i].title+'</div>' +
@@ -298,7 +298,7 @@
 
         })
         $("#productListHear").click(()=>{
-            window.location.href="/web/product?title="+$("input[name=title]").val();
+            window.location.href="/product?title="+$("input[name=title]").val();
         })
 
     });
