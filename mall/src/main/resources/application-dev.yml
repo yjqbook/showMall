@@ -16,7 +16,7 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
 
-projectHttp: "Http://localhost:8088"
+projectHttp: "Http://localhost:8017"
 
 #如果数据为空的字段，则该字段省略不显示，可以通过添加配置文件，规定查询数据为空是则返回null。
 mybatis:
