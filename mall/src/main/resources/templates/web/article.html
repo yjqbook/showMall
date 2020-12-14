@@ -51,7 +51,7 @@
     <div class="banner2">
         <!-- <div class="banui">
 
-             <a href="/memberInfo">
+             <a href="/articleInfo">
                  <div class="banlileft">
                      <img src="../static/image/articlelist1.png"/>
                      <div class="banbu">
@@ -61,7 +61,7 @@
 
                  </div>
              </a>
-             <a href="/memberInfo">
+             <a href="/articleInfo">
                  <div class="banliright">
                      <img src="../static/image/articlelist2.png"/>
                      <div class="banbu">
@@ -73,7 +73,7 @@
 
          </div>
          <div class="banui">
-             <a href="/memberInfo">
+             <a href="/articleInfo">
                  <div class="banlileft">
                      <img src="../static/image/articlelist3.png"/>
                      <div class="banbu">
@@ -82,7 +82,7 @@
                      </div>
                  </div>
              </a>
-             <a href="/memberInfo">
+             <a href="/articleInfo">
                  <div class="banliright">
                      <img src="../static/image/articlelist4.png"/>
                      <div class="banbu">
@@ -94,7 +94,7 @@
          </div>
 
          <div class="banui">
-             <a href="/memberInfo">
+             <a href="/articleInfo">
                  <div class="banlileft">
                      <img src="../static/image/articlelist5.png"/>
                      <div class="banbu">
@@ -103,7 +103,7 @@
                      </div>
                  </div>
              </a>
-             <a href="/memberInfo">
+             <a href="/articleInfo">
                  <div class="banliright">
                      <img src="../static/image/articlelist6.png"/>
                      <div class="banbu">
@@ -128,7 +128,7 @@
                 <div class="menu1"><a href="/product">产品甄选</a></div>
                 <div class="menu2"><a href="/member">会员专享</a></div>
                 <div class="menu3"><a href="/brand">品牌专研</a></div>
-                <div class="menu4"><a href="/member">相关文章</a></div>
+                <div class="menu4"><a href="/article">相关文章</a></div>
             </div>
             <div class="lirightright">
                 <div class="imgli1">
@@ -182,7 +182,7 @@
 
 
                         html += ' <div class="banui">' +
-                            '<a href="/memberInfo?id=' + articleList[i].id + '">\n' +
+                            '<a href="/articleInfo?id=' + articleList[i].id + '">\n' +
                             '<div class="banlileft">\n' +
                             '<img src="' + articleList[i].titleImg + '"/>\n' +
                             '<div class="banbu">\n' +
@@ -193,7 +193,7 @@
                             '</a> '
 
                         if (i + 1 < articleList.length) {
-                            html += '<a href="/memberInfo?id=' + articleList[i + 1].id + '">\n' +
+                            html += '<a href="/articleInfo?id=' + articleList[i + 1].id + '">\n' +
                                 '<div class="banliright">' +
                                 '<img src="' + articleList[i + 1].titleImg + '"/>' +
                                 '<div class="banbu">\n' +
