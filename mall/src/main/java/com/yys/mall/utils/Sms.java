@@ -101,10 +101,4 @@ public class Sms {
         String sendReturn = Sms.sendMessage(url, userid, account, password, phone, content+code);
         return sendReturn;
     }
-
-    public static void main(String[] args) {
-        // 发送短信
-        String sendReturn = Sms.sendMessage(url, userid, account, password, mobile, content);
-        System.out.println(sendReturn); // 处理返回值,参见HTTP协议文档
-    }
 }
