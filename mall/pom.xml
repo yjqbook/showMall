@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.yys</groupId>
-    <artifactId>mall</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>mall</name>
+    <artifactId>cpe_web</artifactId>
+    <version>0.9.0</version>
+    <name>cpe_web</name>
     <description>mall project for Spring Boot</description>
 
     <properties>
