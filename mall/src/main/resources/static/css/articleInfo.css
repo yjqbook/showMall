@@ -78,6 +78,10 @@
     line-height: 20px;
 }
 
+.banner2 .bann_p:first-child{
+    margin-top: 80px;
+}
+
 .banner2 .bann_p:last-child{
-    margin-bottom: 30px;
+    margin-bottom: 80px;
 }
